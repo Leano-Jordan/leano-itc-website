@@ -24,7 +24,7 @@ Then open http://localhost:3000
 
 Replace the placeholder content:
 
-- Contact email (`hello@leanoitc.co.za`) and phone (`+27 12 000 0000`)
+- Contact email (`maluleka.isaacjr@gmail.com`) and phone (`+27 63 644 7652`)
 - The three illustrative engagements in the Work section
 - The commitment stats (2 weeks / 48 hrs / 100%)
 - Wire the enquiry form to a real inbox or CRM (it currently opens a pre-filled `mailto:`)

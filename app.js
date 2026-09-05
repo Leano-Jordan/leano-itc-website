@@ -103,9 +103,14 @@
       const message = (data.get('message') || '').toString().trim();
 
       if (!name || !email || !message) {
-        status.textContent = 'Please add your name, email and a short description.';
-        return;
-      }
+  status.textContent = 'Please add your name, email and a short description.';
+  return;
+}
+
+if (!email.includes('@')) {
+  status.textContent = 'Please enter a valid email address.';
+  return;
+}
 
       const body = [
         'Name: ' + name,
@@ -117,7 +122,7 @@
       ].join('\n');
 
       const href =
-        'mailto:hello@leanoitc.co.za?subject=' +
+        'mailto:maluleka.isaacjr@gmail.com?subject=' +
         encodeURIComponent('Project enquiry — ' + name) +
         '&body=' +
         encodeURIComponent(body);
