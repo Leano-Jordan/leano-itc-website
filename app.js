@@ -9,7 +9,7 @@
     '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
   const toggle = document.querySelector('[data-theme-toggle]');
-  let mode = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  let mode = localStorage.getItem('leano-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
   function paint() {
     root.setAttribute('data-theme', mode);
@@ -20,9 +20,10 @@
   paint();
   if (toggle) {
     toggle.addEventListener('click', function () {
-      mode = mode === 'dark' ? 'light' : 'dark';
-      paint();
-    });
+  mode = mode === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('leano-theme', mode);
+  paint();
+});
   }
 
   /* ---------- Header scroll state ---------- */
