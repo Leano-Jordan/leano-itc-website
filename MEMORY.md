@@ -4,10 +4,10 @@
 Static single-page HTML/CSS/JavaScript with no build step or package manager. `base.css` is the foundation, `style.css` contains design tokens/layout/components, `compat.css` contains progressive fallbacks and imports `quality.css`, and `app.js` contains interaction behaviour.
 
 ## Repository Structure
-`index.html`, `base.css`, `style.css`, `compat.css`, `quality.css`, `app.js`, `assets/`, `README.md`, `CUSTOMIZATION.md`, `THIRD_PARTY_LICENSES.md`, `BROWSER_COMPATIBILITY.md`, `SECURITY.md`, `404.html`, `robots.txt`, `sitemap.xml`.
+`index.html`, `base.css`, `style.css`, `compat.css`, `quality.css`, `app.js`, `assets/`, `README.md`, `CUSTOMIZATION.md`, `THIRD_PARTY_LICENSES.md`, `BROWSER_COMPATIBILITY.md`, `SECURITY.md`, `404.html`, `robots.txt`, `sitemap.xml`, `IP_PROVENANCE.md`, `AI_ASSISTED_DEVELOPMENT.md`, `ASSET_PROVENANCE.md`, `OWNER_INPUT.md`.
 
 ## Design System
-Purple light/dark token system. Typography now references open-source Noto Sans families locally/system-side with system fallbacks, avoiding remote font services.
+Purple light/dark token system. Typography references Noto Sans / Noto Sans Display / Noto Sans Mono with system fallbacks. No remote font service dependency.
 
 ## Important Components
 Sticky header, desktop navigation, mobile drawer, theme toggle, buttons, hero, capability cards, approach/work sections, contact form, footer and scroll-reveal elements.
@@ -16,13 +16,13 @@ Sticky header, desktop navigation, mobile drawer, theme toggle, buttons, hero, c
 Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS. Runtime matrix remains UNKNOWN.
 
 ## Compatibility Findings
-Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Reduced-motion handling now also suppresses hover transforms. Extreme narrow-screen form/card padding is guarded. No external font request remains. Runtime browser/device verification is still not claimed.
+Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Quality safeguards now cover mobile control typography, visible keyboard focus, long-value wrapping, coarse-pointer hover behaviour, high-contrast preferences, native control colour schemes, reduced-motion scrolling and print URL visibility. Runtime browser/device verification is still not claimed.
 
 ## Completed Improvements
 - Removed Fontshare and Google Fonts network dependencies.
 - Switched typography to Noto Sans / Noto Sans Display / Noto Sans Mono with system fallbacks.
 - Added a dedicated `quality.css` layer for release safeguards.
-- Added explicit `robots` and social-image alt metadata.
+- Added explicit robots and social-image metadata.
 - Removed `fetchpriority` from the hero preload.
 - Added maxlength limits to enquiry fields.
 - Added `aria-invalid` state for native validation failures.
@@ -32,6 +32,16 @@ Progressive fallbacks remain for sticky positioning, backdrop blur, masking, tou
 - Added lifecycle cleanup for scroll/reveal work on page exit.
 - Added hover-transform suppression for reduced-motion users.
 - Updated the third-party licence record with Noto OFL 1.1 evidence.
+- Hardened form/control typography and mobile text sizing.
+- Added explicit `:focus-visible` treatment.
+- Added long-value wrapping safeguards to prevent horizontal overflow.
+- Limited hover movement to appropriate pointer environments.
+- Added high-contrast preference safeguards.
+- Added explicit light/dark native control colour schemes.
+- Added reduced-motion scroll-behaviour handling.
+- Added print-time external URL visibility.
+- Added owner/IP provenance, AI-assisted development and asset provenance records.
+- Expanded the customization hand-off guide with a safe replacement order.
 
 ## Known Constraints
 No framework or package manager. The enquiry form uses `mailto:` until a real backend/CRM exists. Business configuration is mainly in `index.html`. Noto is not bundled yet, so exact typography depends on whether Noto is installed; safe system fallbacks are provided.
@@ -39,9 +49,9 @@ No framework or package manager. The enquiry form uses `mailto:` until a real ba
 ## Outstanding Issues
 HIGH: Real multi-browser/device runtime matrix is not completed.
 HIGH: Final business/service/commercial claims require owner review.
-MEDIUM: Local JPEG provenance/licensing remains unproven.
+MEDIUM: Local JPEG provenance/licensing remains unproven and assets are scheduled for replacement.
 MEDIUM: Business configuration should eventually be separated if that improves reuse without unnecessary abstraction.
-MEDIUM: Final commercial IP/ownership documentation still needs owner-specific facts and evidence.
+MEDIUM: AI-assisted source provenance needs final commercial review.
 LOW: Final social-preview image and deployment-specific SEO verification remain outstanding.
 
 ## Deferred Issues
@@ -51,10 +61,10 @@ Backend/CRM integration, full browser/device matrix, final asset licensing clear
 Keep vanilla HTML/CSS/JS. Prefer progressive enhancement and evolutionary refactoring. Preserve existing IDs/classes/data attributes. Do not invent business facts, testimonials, awards, certifications or final artwork. Keep six core service areas with related extensions. AI-assisted engineering remains an engineering workflow capability, not a standalone AI product service. Avoid external runtime dependencies unless explicitly accepted.
 
 ## Commercial / Legal Notes
-The repository is still a branded Leano ITC implementation rather than a neutral template distribution. Identity, claims, metadata, contact details and imagery must be replaced deliberately for another customer. Noto licensing is documented as OFL 1.1, but local imagery rights remain unresolved. This is not legal advice.
+Creator/declared intended owner: Isaac Lehlogonolo Junir Maluleka, operating as an individual freelancer/self-employed person. Declared website/template creation window: 1–2 September 2026. Owner reports no other human contributors. Owner reports the Leano ITC name is registered, but CIPC registration details are not independently verified because current account access is unavailable. No domain is currently recorded as owned. Current logo and three local JPEGs are temporary demonstration assets and must be replaced/cleared before commercial redistribution. Perplexity AI and ChatGPT were used during development; provenance is recorded separately. This is not legal advice.
 
 ## Third-Party Dependencies
-No runtime CDN/font dependency. No package manager. Noto font family references are local/system-side only. Local JPEG assets require provenance/licence clearance before commercial redistribution.
+No runtime CDN/font dependency. No package manager. Noto font family references are local/system-side only. Local JPEG assets require provenance/licence clearance before commercial redistribution. Current AI-generated logo is temporary.
 
 ## Template Customization Points
 Brand, content, theme tokens, imagery, navigation, contact details, SEO metadata and capability wording. See `CUSTOMIZATION.md`.
@@ -67,21 +77,21 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 |---|---:|
 | Architecture | 88 |
 | Maintainability | 94 |
-| UI/UX | 90 |
-| Responsive | 92 |
-| Browser Compatibility | 91 |
-| Accessibility | 96 |
+| UI/UX | 91 |
+| Responsive | 94 |
+| Browser Compatibility | 92 |
+| Accessibility | 97 |
 | JavaScript Quality | 97 |
-| CSS Quality | 95 |
+| CSS Quality | 98 |
 | Performance | 92 |
 | Security | 83 |
 | SEO | 91 |
 | Content Quality | 93 |
-| Template Reusability | 89 |
-| Customizability | 87 |
-| Commercial Readiness | 88 |
-| Legal / Licence Hygiene | 72 |
-| Overall | 92 |
+| Template Reusability | 91 |
+| Customizability | 91 |
+| Commercial Readiness | 90 |
+| Legal / Licence Hygiene | 76 |
+| Overall | 93 |
 
 ## Error Scorecard
 CRITICAL: 0
@@ -101,7 +111,7 @@ LEGAL/LICENCE BLOCKERS: 1
 Unknown is not zero.
 
 ## Last Verified Commit
-`1e861c4797c6f630588d61f403e67172109c1b95`
+`b711a889af21c52322fccb01ad749d6f9e67d43a`
 
 ## Last Improvement Round
-2026-09-07: removed remote font dependencies, introduced dependency-free Noto typography references, hardened forms and mobile drawer behaviour, improved hash/lifecycle handling, added validation and narrow-screen safeguards, and refreshed licensing evidence. Static verification only; runtime browser matrix remains UNKNOWN.
+2026-09-07: completed a commercial-readiness batch covering ten CSS/release safeguards, template hand-off documentation, owner/IP provenance, AI-assisted development provenance, asset provenance and licensing boundaries. Static verification only; runtime browser/device matrix remains UNKNOWN.
