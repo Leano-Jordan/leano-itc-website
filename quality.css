@@ -13,6 +13,27 @@
   scroll-margin-top: 6rem;
 }
 
+/* Keep interactive controls aligned with the document's typography and improve mobile input rendering. */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Preserve readable control sizing on mobile and avoid iOS automatic text zoom. */
+.field input,
+.field textarea,
+.field select {
+  font-size: max(1rem, var(--text-sm));
+}
+
+/* Make keyboard focus visible without replacing native mouse/touch behaviour. */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 /* Native validation remains the source of truth; this only makes invalid fields visible. */
 .field input[aria-invalid="true"],
 .field textarea[aria-invalid="true"],
@@ -21,13 +42,76 @@
   box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.12);
 }
 
+/* Long email addresses and other owner-supplied values must not create horizontal overflow. */
+.detail dd,
+.detail a,
+.form__status,
+.work-item p,
+.card p {
+  overflow-wrap: anywhere;
+}
+
+/* Avoid hover-only movement on touch devices where there is no meaningful hover state. */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover,
+  .work-item:hover,
+  .btn--primary:hover {
+    will-change: transform;
+  }
+}
+
+/* Prefer stable tap behaviour on coarse pointers. */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover,
+  .work-item:hover,
+  .btn--primary:hover {
+    transform: none;
+  }
+}
+
+/* Respect system high-contrast preferences without inventing a second theme. */
+@media (prefers-contrast: more) {
+  .card,
+  .work-item,
+  .form,
+  .field input,
+  .field textarea,
+  .field select,
+  .icon-btn {
+    border-color: currentColor;
+  }
+}
+
+/* Let native controls follow the selected light/dark theme. */
+[data-theme='dark'] .field input,
+[data-theme='dark'] .field textarea,
+[data-theme='dark'] .field select {
+  color-scheme: dark;
+}
+
+[data-theme='light'] .field input,
+[data-theme='light'] .field textarea,
+[data-theme='light'] .field select {
+  color-scheme: light;
+}
+
 /* Reduced motion must also suppress hover movement, not only transitions/animations. */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .btn:hover,
   .card:hover,
+  .work-item:hover,
   .btn:hover .arw {
     transform: none;
   }
+}
+
+/* Keep anchor navigation predictable when scripts are unavailable. */
+html {
+  scroll-behavior: smooth;
 }
 
 /* Keep the form usable at extreme narrow widths. */
@@ -54,5 +138,10 @@
   .form,
   .hero__actions {
     break-inside: avoid;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    overflow-wrap: anywhere;
   }
 }
