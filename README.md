@@ -19,6 +19,10 @@ Static single-page site with no build step, package manager, framework, CDN or r
 - `SECURITY.md` — static security boundary and deployment security notes
 - `404.html` — lightweight noindex fallback page
 - `MEMORY.md` — evolving engineering memory and release scorecard
+- `IP_PROVENANCE.md` — creator, ownership intent and provenance record
+- `AI_ASSISTED_DEVELOPMENT.md` — AI development-tool provenance record
+- `ASSET_PROVENANCE.md` — local image/logo provenance and replacement register
+- `OWNER_INPUT.md` — confirmed owner decisions and remaining owner actions
 
 ## Typography / dependency policy
 
@@ -56,6 +60,8 @@ Because the site has no build system, it can be served from any static HTTP serv
 
 The repository is still a branded Leano ITC implementation, not a neutral template distribution.
 
-Before commercial redistribution, establish provenance/licensing for the local imagery, replace Leano-specific identity/content, and separate business configuration from reusable implementation where justified. Noto licensing is documented in `THIRD_PARTY_LICENSES.md`; local image rights remain unresolved.
+Before commercial redistribution, establish provenance/licensing for the local imagery and replace Leano-specific identity/content. The current AI-generated logo is demonstration artwork and is also scheduled for replacement. The creator/provenance position is recorded in `IP_PROVENANCE.md`, with AI tooling in `AI_ASSISTED_DEVELOPMENT.md` and asset status in `ASSET_PROVENANCE.md`.
 
-See `CUSTOMIZATION.md` for the current hand-off map, `THIRD_PARTY_LICENSES.md` for licensing status, and `SECURITY.md` for the deployment security boundary.
+Noto licensing is documented in `THIRD_PARTY_LICENSES.md`; local image rights remain unresolved.
+
+See `CUSTOMIZATION.md` for the current hand-off map, `THIRD_PARTY_LICENSES.md` for licensing status, `SECURITY.md` for the deployment security boundary, and `OWNER_INPUT.md` for the remaining owner-only release actions.
