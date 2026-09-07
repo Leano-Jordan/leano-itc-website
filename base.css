@@ -45,6 +45,15 @@ svg {
   height: auto;
 }
 
+img {
+  border-style: none;
+}
+
+iframe {
+  max-width: 100%;
+  border: 0;
+}
+
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
@@ -62,6 +71,17 @@ input,
 textarea,
 select {
   max-width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button,
+input,
+select,
+textarea {
+  appearance: none;
 }
 
 h1,
