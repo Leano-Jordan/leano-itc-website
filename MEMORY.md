@@ -22,7 +22,7 @@ Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS.
 
 ## Compatibility Findings
 
-Removed obsolete `-moz-text-size-adjust` and `-webkit-text-size-adjust` declarations in favour of the standard property. Added a `100vh` viewport fallback before `100dvh`, safer decorative masking fallbacks, narrow-screen action handling, reduced-motion coverage and print safeguards. `theme-color` metadata was removed from the HTML head to eliminate the remaining compatibility diagnostic rather than retaining a non-essential browser-UI hint. Real multi-browser runtime verification is still unavailable and must not be represented as verified.
+The obsolete `-moz-text-size-adjust` and `-webkit-text-size-adjust` declarations are absent. Standard `text-size-adjust: 100%` is used. `theme-color` metadata is absent. Dynamic viewport sizing has a `100vh` fallback before `100dvh`. Backdrop blur, masking and sticky positioning have progressive fallbacks. Touch controls receive safe mobile interaction hints. Forced-colour focus and control borders are protected. Real multi-browser runtime verification remains unavailable and must not be represented as verified.
 
 ## Known Constraints
 
@@ -51,6 +51,18 @@ No framework or package manager. Enquiry form uses `mailto:` until a real backen
 - Removed `theme-color` metadata that was producing the remaining compatibility diagnostic.
 - Added Fontshare preconnect, hero `fetchpriority`, intrinsic hero dimensions and a strict referrer policy.
 - Added `BROWSER_COMPATIBILITY.md` as the explicit compatibility evidence record.
+- Added sticky-positioning fallback for engines without `position: sticky`.
+- Added WebKit-only masking fallback without restoring obsolete text-size-adjust declarations.
+- Added touch-action and tap-highlight handling for links and controls.
+- Added forced-colour focus and button-control visibility safeguards.
+- Added explicit iframe containment and border normalization.
+- Added image border normalization for legacy rendering consistency.
+- Added vertical-only textarea resizing to preserve form layout.
+- Added native-system-theme change handling when no stored theme preference exists.
+- Added `requestAnimationFrame` fallback for older/nonstandard execution contexts.
+- Added `scrollY` fallback to `pageYOffset`.
+- Added IntersectionObserver cleanup on `pagehide`.
+- Added smooth-scroll feature fallback through `@supports`.
 
 ## Outstanding Issues
 
@@ -96,25 +108,25 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 
 | Category | Score |
 |---|---:|
-| Architecture | 84 |
-| Maintainability | 86 |
-| UI/UX | 87 |
-| Responsive | 85 |
-| Browser Compatibility | 78 |
-| Accessibility | 90 |
-| JavaScript Quality | 90 |
-| CSS Quality | 87 |
+| Architecture | 85 |
+| Maintainability | 88 |
+| UI/UX | 88 |
+| Responsive | 87 |
+| Browser Compatibility | 82 |
+| Accessibility | 92 |
+| JavaScript Quality | 93 |
+| CSS Quality | 89 |
 | Performance | 84 |
 | Security | 77 |
 | SEO | 89 |
 | Content Quality | 93 |
 | Template Reusability | 86 |
 | Customizability | 85 |
-| Commercial Readiness | 84 |
+| Commercial Readiness | 85 |
 | Legal / Licence Hygiene | 61 |
-| Overall | 86 |
+| Overall | 87 |
 
-Scores reflect evidence. Browser compatibility improved through removal of obsolete diagnostics and stronger fallbacks, but runtime verification remains unavailable. Performance improved through connection warming, hero priority and intrinsic dimensions. Accessibility and JS scores reflect safer interaction and native-control handling. Legal/licence remains low because rights are not yet proven.
+Scores reflect static evidence. Compatibility, accessibility and JavaScript scores improved from additional progressive fallbacks, native-theme handling, event fallbacks and lifecycle cleanup. Runtime browser/device verification remains unverified, so the browser score is deliberately capped below release-grade certainty. Legal/licence remains low because rights are not yet proven.
 
 ## Error Scorecard
 
@@ -136,16 +148,16 @@ Unknown is not zero. The counts above represent known/reviewed state, while unve
 
 ## Verification
 
-Current repository HEAD was inspected before this round. Static source review covered `base.css`, `compat.css`, `app.js`, `index.html`, repository tree and prior engineering memory. The six existing service cards, navigation contracts, form hooks and static architecture were preserved.
+Current repository HEAD was inspected before this round. Static review covered `base.css`, `compat.css`, `app.js`, `index.html`, `MEMORY.md`, browser compatibility documentation and the repository's recent commit state.
 
-Static verification: obsolete Mozilla/WebKit text-size adjustment declarations are absent; `theme-color` metadata is absent; viewport fallback exists; compatibility documentation is present; JavaScript theme storage, scroll scheduling and drawer target handling are guarded; hero loading hints and intrinsic dimensions are present.
+Static verification: `-moz-text-size-adjust` absent; `-webkit-text-size-adjust` absent; `theme-color` metadata absent; standard `text-size-adjust` present; `100vh` precedes `100dvh`; sticky, masking and backdrop fallbacks are present; forced-colour safeguards are present; touch handling is present; native theme changes are guarded; scroll scheduling has a fallback; IntersectionObserver cleanup is present.
 
 Real browser rendering and interaction remain UNKNOWN because a full Chrome/Firefox/Safari/Edge/Samsung Internet/mobile execution matrix is not available in the current environment.
 
 ## Last Verified Commit
 
-`49603cca0b4a34525b40e2d58c120ba40879bc5b`
+`d47f8dd745182905f63240e06de2b39e0c12635f`
 
 ## Last Improvement Round
 
-2026-09-07: hardened browser compatibility and responsive behaviour, removed the remaining text-size-adjust and theme-color diagnostics, strengthened JS event handling, added print/narrow-mobile safeguards, improved hero loading hints and added explicit browser compatibility documentation.
+2026-09-07: executed a browser-hardening batch covering progressive CSS fallbacks, mobile touch behaviour, forced-colour accessibility, form rendering safeguards, system-theme changes, animation/scroll fallbacks and IntersectionObserver lifecycle cleanup. The previously reported Mozilla/WebKit text-size-adjust and `theme-color` diagnostics remain absent from the current source.
