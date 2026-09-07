@@ -113,6 +113,7 @@
       link.addEventListener('click', function (event) {
         const href = link.getAttribute('href') || '';
         setOpen(false);
+        menuBtn.focus();
 
         if (href.charAt(0) !== '#') return;
         event.preventDefault();
