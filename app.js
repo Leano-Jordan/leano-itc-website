@@ -95,6 +95,20 @@
       }
     });
 
+    function scrollToTarget(target) {
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      const smooth = !(reducedMotionQuery && reducedMotionQuery.matches);
+
+      try {
+        window.scrollTo({
+          top: top,
+          behavior: smooth ? 'smooth' : 'auto',
+        });
+      } catch (error) {
+        window.scrollTo(0, top);
+      }
+    }
+
     drawerLinks.forEach(function (link) {
       link.addEventListener('click', function (event) {
         const href = link.getAttribute('href') || '';
@@ -107,11 +121,7 @@
         if (!target) return;
 
         window.setTimeout(function () {
-          const top = target.getBoundingClientRect().top + window.scrollY - 80;
-          window.scrollTo({
-            top: top,
-            behavior: reducedMotionQuery && reducedMotionQuery.matches ? 'auto' : 'smooth',
-          });
+          scrollToTarget(target);
         }, 380);
       });
     });
