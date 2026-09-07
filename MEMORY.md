@@ -2,9 +2,9 @@
 
 ## CURRENT BASELINE
 
-Current repository state: `main` after browser-compatibility, CSS compatibility, accessibility-semantic and editor-diagnostic cleanup.
+Current repository state: `main` after factual service/project positioning, compatibility cleanup, and documentation alignment.
 Current branch: `main`
-Current repository HEAD: `f09f9e9e8d1a480bfa5719d65bf95dd916b4ca91`
+Current repository HEAD: `fbbe555c1e94c24597310dfe1cc57750e79bf02b`
 Architecture: Static single-page HTML/CSS/JavaScript, no build step.
 Stack: HTML5, CSS, vanilla JavaScript, inline SVG, local JPEG assets, external web fonts.
 
@@ -15,8 +15,8 @@ Layout: `.shell`, `.section`, CSS Grid/Flexbox.
 Components: header, mobile drawer, buttons, cards, steps, work items, form, footer, theme toggle, scroll reveal.
 Page: `index.html`.
 Assets: `assets/hero.jpg`, `assets/studio.jpg`, `assets/texture.jpg`.
-Configuration: Business content/metadata mainly in `index.html`.
-Compatibility: `compat.css` progressive fallbacks; core CSS uses broadly supported RGB/hex syntax for key colours.
+Configuration: Business content/metadata remains mainly in `index.html`.
+Compatibility: `compat.css` supplies progressive fallbacks for dynamic viewport units, backdrop blur and masking. Core CSS uses broadly supported RGB/hex syntax for key colours.
 
 ## DESIGN SYSTEM
 
@@ -25,12 +25,15 @@ Spacing: `--space-1` through `--space-32`.
 Colours: Purple primary palette with light/dark tokens.
 Breakpoints: 560px, 800px, 860px, 900px. Review widths: 375, 390, 430, 768, 1024, 1280, 1440px.
 
-## DECISIONS
+## KNOWN DECISIONS
 
 - Keep vanilla HTML/CSS/JS. Framework migration is unjustified for this static template.
 - Use progressive browser enhancement and explicit fallbacks instead of adding build complexity.
 - Prefer sRGB/RGB/hex syntax for broadly supported core CSS.
 - Keep native form validation + `mailto:` until a real backend/CRM is added.
+- Public service claims are deliberately conservative and tied to demonstrated project work.
+- Do not present illustrative or invented client engagements as real case studies.
+- The public technology list currently focuses on HTML, CSS, JavaScript, PHP, SQL/MySQL/MariaDB, Kotlin, Android and Jetpack Compose, plus engineering review practices.
 
 ## COMPLETED WORK
 
@@ -39,56 +42,88 @@ Breakpoints: 560px, 800px, 860px, 900px. Review widths: 375, 390, 430, 768, 1024
 - `aac01b305820b1b31571a23ae928108b90bdea6f`: removed unsupported base CSS diagnostics for text-size-adjust, hanging-punctuation and text-wrap.
 - `f3954add8f86996419d437ec2231d231618c6741`: replaced core OKLCH/color-mix usage with RGB/hex equivalents; added WebKit + standard backdrop/mask declarations.
 - `6dd43d9545976073597dcd5dd6338229ae74508e`: repaired contact definition-list semantics and removed unsupported image fetch-priority hint.
-- `f09f9e9e8d1a480bfa5719d65bf95dd916b4ca91`: updated this engineering memory against the current repository state.
+- `f09f9e9e8d1a480bfa5719d65bf95dd916b4ca91`: updated engineering memory against the repository state before this cycle.
+- `4ef68349aea9ed9b0ffce966d25adad8b62015b9`: replaced exaggerated service/technology claims and invented work examples with factual capability and selected-project content.
+- `2ac59936773cf2555951d43c873dd897df518e97`: simplified `compat.css`, removing obsolete colour-feature diagnostics while retaining progressive fallbacks.
+- `2169130122e2dac5a8fe2cc1f0a4f8a3f4d7d573`: added a numeric `scrollTo` fallback when object-form smooth scrolling is unavailable.
+- `fbbe555c1e94c24597310dfe1cc57750e79bf02b`: aligned README with the current factual positioning and verification limits.
 
 ## SCORECARD
 
-Architecture: 82
-Maintainability: 80
+Architecture: 84
+Maintainability: 82
 Visual: 84
-UX: 83
+UX: 85
 Responsive: 82
 Accessibility: 87
 Performance: 79
-SEO: 82
+SEO: 84
 Security: 75
-Code Quality: 85
-Content: 72
-Commercial: 75
+Code Quality: 87
+Content: 90
+Commercial: 80
 Legal/IP: 58
-Reusability: 77
-Overall: 79
+Reusability: 80
+Overall: 81
 
-These are evidence-based engineering estimates, not compliance certificates. Legal/IP remains low because asset licensing and business rights are not proven by repository evidence.
+Change from previous recorded baseline: +2 overall.
+The content score increased because unsupported technology claims, fabricated illustrative engagements and unsupported commitment statistics were removed from the public page.
+Legal/IP remains low because asset licensing and business rights are not proven by repository evidence.
 
 ## OPEN ISSUES
 
-HIGH: Real Chrome/Edge/Firefox/Safari runtime matrix is not completed in this environment. Status: UNKNOWN / ENVIRONMENT LIMIT.
-HIGH: Business-specific service, technology, outcome and commercial claims require owner confirmation.
+HIGH: Real Chrome/Edge/Firefox/Safari runtime matrix is not completed in this environment. Chromium was available but the headless runtime did not complete reliably, so browser behaviour remains UNKNOWN rather than being claimed as verified.
+HIGH: Business-specific service, technology, outcome and commercial claims should still be reviewed by the owner before public release.
 MEDIUM: Fontshare/Google Fonts licensing, privacy and self-hosting should be reviewed before commercial distribution.
 MEDIUM: Production SEO still needs robots.txt, sitemap.xml, deployment-aware canonical handling and final social-image strategy.
 MEDIUM: Business configuration remains mainly in `index.html`; centralise only if it genuinely improves reuse.
-LOW: VS Code cSpell flags valid vocabulary such as `lede`, `textlink` and `nums`. Editor-only warning.
+LOW: Editor-only spelling warnings may remain for valid technical vocabulary.
 
 ## MANUAL WORK
 
-- Confirm final business/service/technology claims and illustrative work.
+- Run the real browser matrix at 375 / 390 / 430 / 768 / 1024 / 1280 / 1440px in Chromium/Chrome, Edge, Firefox and Safari, including Safari macOS/iOS.
+- Confirm final business/service claims before public launch.
 - Confirm rights/licences for imagery, fonts, icons and third-party assets.
 - Connect enquiry form to a real inbox/CRM if `mailto:` is insufficient.
-- Run final real-browser matrix testing, including Safari macOS/iOS.
 
-## LEGAL/IP
+## DEPENDENCIES
+
+- Fontshare-hosted Cabinet Grotesk and Satoshi: external hosted fonts; licence/redistribution status requires final commercial review.
+- Google Fonts-hosted JetBrains Mono: external hosted font; licence/redistribution status requires final commercial review.
+- No JavaScript framework or package manager dependency is used by the website itself.
+
+## LEGAL/IP NOTES
 
 Local JPEG provenance/licensing is not established by repository evidence.
 External font licensing must be confirmed before redistribution.
 Technical review does not establish legal compliance.
 
-## TEMPLATE CUSTOMIZATION
+## TEMPLATE CUSTOMIZATION NOTES
 
-Safe areas: business copy, contact details, navigation labels, services/work content, design tokens, typography, imagery paths and metadata.
-Primary files: `index.html`, `style.css`, `base.css`, `assets/`.
-Preserve JavaScript/navigation IDs, classes and data attributes.
+Safe areas: business copy, contact details, navigation labels, services/project content, design tokens, typography, imagery paths and metadata.
+Primary files: `index.html`, `style.css`, `base.css`, `compat.css`, `assets/`.
+Preserve JavaScript/navigation IDs, classes and data attributes when customizing.
+Do not copy Leano-specific branding, contact information, SEO metadata or project claims into a different customer's template without deliberate replacement.
+
+## VERIFICATION
+
+Confirmed from repository:
+- Current `index.html` contains the revised factual service and selected-project content.
+- `compat.css` contains no OKLCH/color-mix diagnostics and uses progressive fallbacks.
+- Current `app.js` passes Node.js syntax checking in the available environment.
+- `compat.css` parses with `tinycss2` with 0 parse errors in the available environment.
+- Git comparison from `595fb5f9d9f771d3b08af2471fd1474df0b96365` to current HEAD contains only the intended four files: `index.html`, `compat.css`, `app.js`, `README.md`.
+
+Unknown / not verified:
+- Real browser rendering and interaction across Chrome/Edge/Firefox/Safari.
+- Production network/font loading behaviour.
+- Final deployment-specific SEO behaviour.
 
 ## NEXT VERIFIED PRIORITY
 
-Establish a repeatable real-browser smoke-test matrix, then continue the deeper content/claim audit. The reported compatibility and HTML-structure defects are addressed; runtime browser evidence remains the main gap.
+Establish the real browser smoke-test matrix and inspect any runtime-only regressions. Do not lower the evidence standard just because static checks pass.
+
+## RELEASE HISTORY
+
+- `fbbe555c1e94c24597310dfe1cc57750e79bf02b` — 2026-09-07 — factual service/project positioning, compatibility hardening, README alignment — Overall 81/100 — static verification passed; real browser matrix still unknown.
+- `595fb5f9d9f771d3b08af2471fd1474df0b96365` — 2026-09-07 — engineering memory finalized against prior repository state — Overall 79/100.
