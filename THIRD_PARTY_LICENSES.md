@@ -5,7 +5,8 @@ This file records third-party resources currently referenced by the website. It 
 | Resource | Version / reference | Purpose | Licence status | Source | Commercial redistribution action |
 |---|---|---|---|---|---|
 | Noto Sans / Noto Sans Display / Noto Sans Mono | System-local CSS family references; no CDN request | Display, body and monospace typography | **OPEN-SOURCE / OFL 1.1** | Noto Fonts project | Suitable for commercial software/template use under the SIL Open Font License. If font files are bundled later, include the applicable OFL notice/license and preserve any reserved-name requirements. |
-| Local JPEG imagery | `assets/hero.jpg`, `assets/studio.jpg`, `assets/texture.jpg` | Site imagery | **UNKNOWN** | Repository-local assets | Establish provenance and commercial-use rights before redistribution; replace with cleared assets if provenance cannot be established. |
+| Local JPEG imagery | `assets/hero.jpg`, `assets/studio.jpg`, `assets/texture.jpg` | Site imagery | **UNKNOWN / TEMPORARY** | Repository-local assets | Replace with owned or clearly commercially licensed assets before redistribution. |
+| Current logo mark | Inline SVG demonstration artwork | Brand demonstration | **AI-GENERATED / TEMPORARY** | Project development | Replace before commercial template redistribution; do not treat as final cleared brand artwork. |
 
 ## Current dependency position
 
@@ -23,6 +24,7 @@ Source evidence: https://github.com/notofonts/get-noto and https://github.com/no
 
 ## Important
 
-- This record does not clear the repository's local imagery. Image provenance remains an outstanding commercial/licensing item.
+- This record does not clear the repository's local imagery or current logo artwork.
+- AI-assisted development is separately recorded in `AI_ASSISTED_DEVELOPMENT.md`.
 - Do not treat this record as proof of ownership of third-party assets.
 - Final rights verification remains an owner/distributor responsibility.
