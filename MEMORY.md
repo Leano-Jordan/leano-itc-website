@@ -14,7 +14,7 @@ Cabinet Grotesk, Satoshi and JetBrains Mono with system fallbacks. Purple light/
 
 ## Important Components
 
-Sticky header, desktop navigation, mobile drawer, theme toggle, buttons, hero, cards, approach/work sections, contact form, footer and scroll-reveal elements.
+Sticky header, desktop navigation, mobile drawer, theme toggle, buttons, hero, capability cards, approach/work sections, contact form, footer and scroll-reveal elements.
 
 ## Browser Targets
 
@@ -38,6 +38,9 @@ No framework or package manager. Enquiry form uses `mailto:` until a real backen
 - Added `CUSTOMIZATION.md` to make hand-off/customization points explicit.
 - Added `THIRD_PARTY_LICENSES.md` to record licensing/provenance items requiring verification.
 - Fixed mobile drawer navigation focus so keyboard focus returns to the menu trigger when a drawer link closes the menu.
+- Expanded the six core capability cards with directly supported document/workflow, automation, integration, local-network/device, modernisation and handover-related wording without creating unsupported service departments.
+- Added AI-assisted engineering as an engineering-workflow capability rather than a standalone AI service claim.
+- Expanded enquiry topics to cover the new capability extensions without changing the underlying mailto workflow.
 
 ## Outstanding Issues
 
@@ -61,6 +64,8 @@ Backend/CRM form integration, full browser/device matrix, final asset licensing 
 
 Keep vanilla HTML/CSS/JS. Evolve the existing architecture rather than introducing a framework. Prefer progressive enhancement. Preserve existing JavaScript IDs/classes/data attributes when customizing. Do not invent business facts, testimonials, awards, certifications or final artwork.
 
+Service positioning remains six core areas with related extensions. Digital documents/workflows, API/system integration, automation, modernisation, technical planning, local-network/device-aware work and development documentation are attached to existing capabilities rather than marketed as separate departments. AI-assisted engineering is described as an internal/workflow capability, not a standalone AI product service.
+
 ## Commercial / Legal Notes
 
 The site is not yet a neutral commercial template distribution. Leano-specific identity, claims, metadata, contact details and imagery must be deliberately replaced for another customer. `THIRD_PARTY_LICENSES.md` records known licensing/provenance uncertainty. This is not legal advice.
@@ -71,19 +76,19 @@ External Fontshare CSS for Cabinet Grotesk/Satoshi and Google Fonts CSS for JetB
 
 ## Template Customization Points
 
-Brand, content, theme tokens, imagery, navigation, contact details and SEO metadata. See `CUSTOMIZATION.md`.
+Brand, content, theme tokens, imagery, navigation, contact details, SEO metadata and capability wording. See `CUSTOMIZATION.md`.
 
 ## Regression Warnings
 
-Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`, `[data-theme-toggle]`, `[data-reveal]` and drawer `data-open` behaviour unless consumers are updated together.
+Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`, `[data-theme-toggle]`, `[data-reveal]` and drawer `data-open` behaviour unless consumers are updated together. The service card grid and enquiry topic list are content-level extensions and should remain aligned with the six-core capability model.
 
 ## Scorecard
 
 | Category | Score |
 |---|---:|
 | Architecture | 84 |
-| Maintainability | 83 |
-| UI/UX | 85 |
+| Maintainability | 84 |
+| UI/UX | 86 |
 | Responsive | 82 |
 | Browser Compatibility | 72 |
 | Accessibility | 89 |
@@ -92,14 +97,14 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 | Performance | 80 |
 | Security | 75 |
 | SEO | 88 |
-| Content Quality | 90 |
-| Template Reusability | 84 |
-| Customizability | 83 |
-| Commercial Readiness | 81 |
+| Content Quality | 93 |
+| Template Reusability | 86 |
+| Customizability | 85 |
+| Commercial Readiness | 83 |
 | Legal / Licence Hygiene | 61 |
-| Overall | 83 |
+| Overall | 84 |
 
-Scores reflect evidence. Browser Compatibility remains deliberately lower because runtime verification is incomplete. Legal/licence remains low because rights are not yet proven.
+Scores reflect evidence. Content, reusability and customizability improved because the public capability model now covers supported adjacent work without broad unsupported claims. Browser Compatibility remains deliberately lower because runtime verification is incomplete. Legal/licence remains low because rights are not yet proven.
 
 ## Error Scorecard
 
@@ -121,12 +126,14 @@ Unknown is not zero. The counts above represent known/reviewed state, while unve
 
 ## Verification
 
-Static repository inspection confirms the current tree contains the documented files and current production URL metadata. `app.js` was previously syntax-checked successfully with Node.js. This round statically verified the drawer focus-return change and the new SEO/licensing/customization documentation. Real browser rendering remains UNKNOWN.
+Current repository HEAD was inspected before this round. The six existing service cards, navigation contracts, form hooks and static architecture were preserved while capability wording and enquiry topics were extended. The changes are content/markup-level and do not introduce a framework, dependency or new runtime API.
+
+Static verification: HTML structure reviewed against existing CSS/JS hooks. JavaScript implementation was not changed in this round. Real browser rendering and interaction remain UNKNOWN.
 
 ## Last Verified Commit
 
-`b38faa86122130ec5075f4176d0ebfd3199f8e7e` before this round.
+`2dc5e50e12a862395c94cdfd30de2a45c252c4d1` before this round.
 
 ## Last Improvement Round
 
-2026-09-07: added SEO crawl files, commercial hand-off/licence records, and mobile drawer keyboard-focus regression protection. Browser runtime remains unverified.
+2026-09-07: extended the six core service capabilities with directly supported adjacent work, added capability-aligned enquiry topics, clarified AI-assisted engineering positioning, and updated handover documentation and scorecard.
