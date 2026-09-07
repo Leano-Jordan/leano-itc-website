@@ -4,7 +4,8 @@
 
 Current repository state: `main` after browser-compatibility, validity hardening and engineering-memory setup.
 Current branch: `main`
-Current commit: `106fad9dbd94287704d834e3603e461430f70e21`
+Current repository HEAD: `60889ddc06a3a4052a105f728a543d034fdd60ef`
+Current implementation commit: `11273fff6be50377d02d1a0f3d3195e90847e827`
 Current architecture: Static single-page HTML/CSS/JavaScript site with no build step.
 Current stack: HTML5, CSS, vanilla JavaScript, inline SVG, local JPEG assets, external web fonts.
 
@@ -67,7 +68,7 @@ Date: 2026-09-07
 Change: Added persistent engineering memory and release scorecard.
 Files: `MEMORY.md`
 Verification: File re-fetched from `main` after update.
-Commit: `106fad9dbd94287704d834e3603e461430f70e21`
+Commit: `60889ddc06a3a4052a105f728a543d034fdd60ef`
 
 ## CURRENT SCORECARD
 
@@ -204,7 +205,7 @@ Changes: Progressive browser compatibility layer.
 Score: 77/100 estimated current baseline.
 Verification: CSS parse test passed; repository rescanned.
 
-Commit: `106fad9dbd94287704d834e3603e461430f70e21`
+Commit: `60889ddc06a3a4052a105f728a543d034fdd60ef`
 Date: 2026-09-07
 Changes: Persistent engineering memory and scorecard.
 Score: 77/100
