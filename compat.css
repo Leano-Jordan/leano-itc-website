@@ -66,6 +66,7 @@
 @supports (-webkit-mask-image: linear-gradient(black, transparent)) and (not (mask-image: linear-gradient(black, transparent))) {
   .hero__grid {
     -webkit-mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
   }
 }
 
