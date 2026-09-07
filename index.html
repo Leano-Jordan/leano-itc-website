@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="index,follow" />
     <title>Leano ITC — Software Development &amp; Systems Engineering</title>
     <meta name="description" content="Leano ITC is a Pretoria-based software development practice focused on web applications, business systems, databases, Android applications and technical software review." />
     <link rel="canonical" href="https://leanoitc.co.za/" />
@@ -14,20 +15,18 @@
     <meta property="og:url" content="https://leanoitc.co.za/" />
     <meta property="og:site_name" content="Leano ITC" />
     <meta property="og:image" content="https://leanoitc.co.za/assets/hero.jpg" />
+    <meta property="og:image:alt" content="Leano ITC software development workspace imagery" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Leano ITC — Software Development &amp; Systems Engineering" />
     <meta name="twitter:description" content="Web applications, business systems, database-backed software, Android development and technical engineering review." />
     <meta name="twitter:image" content="https://leanoitc.co.za/assets/hero.jpg" />
+    <meta name="twitter:image:alt" content="Leano ITC software development workspace imagery" />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' rx='6' fill='%2355349b'/%3E%3Cpath d='M8 6.5V17h9' stroke='white' stroke-width='2.2' fill='none' stroke-linecap='square'/%3E%3Cpath d='M13 11.5V22h9' stroke='white' stroke-opacity='.5' stroke-width='2.2' fill='none' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="preconnect" href="https://api.fontshare.com" />
-    <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,500&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet" />
+    <!-- No remote font services: the template uses open-source Noto font families when installed, with system fallbacks. -->
     <link rel="stylesheet" href="./base.css" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./compat.css" />
-    <link rel="preload" as="image" href="./assets/hero.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/hero.jpg" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -89,40 +88,17 @@
         </div>
       </div>
     </section>
-    
     <section class="section approach" id="approach" aria-labelledby="approach-title"><div class="approach__bg"><img src="./assets/texture.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" /></div><div class="shell">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow">Approach</p>
-          <h2 class="section-title" id="approach-title">Understand first. Build deliberately. Verify before claiming done.</h2>
-          <p class="section-lede">The same loop applies whether the job is a new feature, a bug sweep, a workflow improvement or a full software review. AI-assisted research and engineering tools may support analysis, prototyping, debugging and documentation, while implementation decisions remain grounded in the actual system.</p></div>
-        <div class="steps">
-          <article class="step" data-reveal>
-            <p class="step__num">01</p>
-            <h3>Understand</h3>
-            <p>Map the workflow, inspect the existing implementation and identify the real constraint before changing it.</p>
-          </article>
-          <article class="step" data-reveal>
-            <p class="step__num">02</p>
-            <h3>Design</h3>
-            <p>Choose the smallest architecture and interface change that solves the problem without unnecessary technology.</p>
-          </article>
-          <article class="step" data-reveal>
-            <p class="step__num">03</p>
-            <h3>Build</h3>
-            <p>Implement in focused batches, preserving existing behaviour and tracing shared-code consumers before refactoring.</p>
-          </article>
-          <article class="step" data-reveal>
-            <p class="step__num">04</p><h3>Verify</h3><p>Run available syntax, static, functional and responsive checks, then separate verified facts from assumptions.</p></article></div>
+        <div class="section-head" data-reveal><p class="eyebrow">Approach</p><h2 class="section-title" id="approach-title">Understand first. Build deliberately. Verify before claiming done.</h2><p class="section-lede">The same loop applies whether the job is a new feature, a bug sweep, a workflow improvement or a full software review. AI-assisted research and engineering tools may support analysis, prototyping, debugging and documentation, while implementation decisions remain grounded in the actual system.</p></div>
+        <div class="steps"><article class="step" data-reveal><p class="step__num">01</p><h3>Understand</h3><p>Map the workflow, inspect the existing implementation and identify the real constraint before changing it.</p></article><article class="step" data-reveal><p class="step__num">02</p><h3>Design</h3><p>Choose the smallest architecture and interface change that solves the problem without unnecessary technology.</p></article><article class="step" data-reveal><p class="step__num">03</p><h3>Build</h3><p>Implement in focused batches, preserving existing behaviour and tracing shared-code consumers before refactoring.</p></article><article class="step" data-reveal><p class="step__num">04</p><h3>Verify</h3><p>Run available syntax, static, functional and responsive checks, then separate verified facts from assumptions.</p></article></div>
       </div></section>
       <section class="section" id="work" aria-labelledby="work-title"><div class="shell">
         <div class="section-head section-head--split" data-reveal><div><p class="eyebrow">Selected projects</p><h2 class="section-title" id="work-title">Built work, not invented client stories.</h2></div><p class="section-lede">These are development projects I have actually worked on. They are presented as projects, not as client testimonials or fabricated case studies.</p></div>
-        <div class="work-grid">
-          <article class="work-item" data-reveal>
-            <p class="work-item__tag">Business systems · PHP · MySQL</p><h3>SwiftOrder / Store Ordering System</h3><p>A database-backed ordering and business management system covering products, stock, purchasing, users, reporting, activity logging and transactional workflows. The project has also been subjected to structured security, QA and maintainability audits.</p><dl><div><dt>Type</dt><dd>Product development</dd></div><div><dt>Stack</dt><dd>PHP · MySQL · JavaScript</dd></div></dl></article><article class="work-item" data-reveal><p class="work-item__tag">Android · Kotlin · Jetpack Compose</p><h3>GnuGuard</h3><p>An Android Wi-Fi scanner and local-network device discovery application with security diagnostics, device inspection, biometric protection and coroutine-based scanning.</p><dl><div><dt>Type</dt><dd>Android application</dd></div><div><dt>Stack</dt><dd>Kotlin · Compose · Android</dd></div></dl></article></div>
+        <div class="work-grid"><article class="work-item" data-reveal><p class="work-item__tag">Business systems · PHP · MySQL</p><h3>SwiftOrder / Store Ordering System</h3><p>A database-backed ordering and business management system covering products, stock, purchasing, users, reporting, activity logging and transactional workflows. The project has also been subjected to structured security, QA and maintainability audits.</p><dl><div><dt>Type</dt><dd>Product development</dd></div><div><dt>Stack</dt><dd>PHP · MySQL · JavaScript</dd></div></dl></article><article class="work-item" data-reveal><p class="work-item__tag">Android · Kotlin · Jetpack Compose</p><h3>GnuGuard</h3><p>An Android Wi-Fi scanner and local-network device discovery application with security diagnostics, device inspection, biometric protection and coroutine-based scanning.</p><dl><div><dt>Type</dt><dd>Android application</dd></div><div><dt>Stack</dt><dd>Kotlin · Compose · Android</dd></div></dl></article></div>
       </div></section>
       <section class="section section--tight" id="stack" aria-labelledby="stack-title"><div class="shell stack-layout"><div data-reveal><p class="eyebrow">Working stack</p><h2 class="section-title">Technologies demonstrated in actual work.</h2><p class="section-lede">This list is intentionally conservative. Familiarity alone is not treated as professional delivery experience.</p></div><div data-reveal><h2 class="sr-only" id="stack-title">Technology stack</h2><div class="stack-groups"><div class="stack-group"><h3>Web</h3><ul class="chips" role="list"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>PHP</li></ul></div><div class="stack-group"><h3>Data</h3><ul class="chips" role="list"><li>SQL</li><li>MySQL</li><li>MariaDB</li></ul></div><div class="stack-group"><h3>Mobile</h3><ul class="chips" role="list"><li>Kotlin</li><li>Android</li><li>Jetpack Compose</li></ul></div><div class="stack-group"><h3>Engineering</h3><ul class="chips" role="list"><li>Git</li><li>GitHub</li><li>QA</li><li>Security review</li><li>Accessibility</li><li>AI-assisted engineering</li></ul></div></div></div></div></section>
       <section class="section" id="contact" aria-labelledby="contact-title"><div class="shell contact__wrap"><div data-reveal><p class="eyebrow">Contact</p><h2 class="section-title" id="contact-title">Have a system to build, improve or audit?</h2><p class="section-lede">Send a short description of the problem. I will use the details to determine whether I can help and what the next sensible step is.</p><dl class="details"><div class="detail"><dt>Email</dt><dd><a href="mailto:maluleka.isaacjr@gmail.com">maluleka.isaacjr@gmail.com</a></dd></div><div class="detail"><dt>Phone</dt><dd><a href="tel:+27636447652">+27 63 644 7652</a></dd></div><div class="detail"><dt>Location</dt><dd>Pretoria, Gauteng, South Africa</dd></div></dl></div>
-        <form class="form" id="enquiry" data-reveal><div class="form__row"><div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required /></div><div class="field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" /></div></div><div class="form__row"><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div><div class="field"><label for="topic">What do you need</label><select id="topic" name="topic"><option>Web application</option><option>Business system</option><option>Database / SQL work</option><option>Digital documents / business workflow</option><option>API / system integration</option><option>Workflow automation</option><option>Android / local-network application</option><option>Technical review / QA / modernisation</option><option>Technical planning / architecture</option><option>Something else</option></select></div></div><div class="field"><label for="message">The problem, in a few lines</label><textarea id="message" name="message" rows="5" required></textarea></div><button class="btn btn--primary" type="submit">Send enquiry <svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" /></svg></button><p class="form__status" role="status" aria-live="polite" id="form-status"></p><p class="form__hint">This opens a pre-filled email to the address above. A server-side form or CRM can be connected later.</p></form>
+        <form class="form" id="enquiry" data-reveal><div class="form__row"><div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" maxlength="120" required /></div><div class="field"><label for="company">Company</label><input id="company" name="company" type="text" autocomplete="organization" maxlength="160" /></div></div><div class="form__row"><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" maxlength="254" required /></div><div class="field"><label for="topic">What do you need</label><select id="topic" name="topic"><option>Web application</option><option>Business system</option><option>Database / SQL work</option><option>Digital documents / business workflow</option><option>API / system integration</option><option>Workflow automation</option><option>Android / local-network application</option><option>Technical review / QA / modernisation</option><option>Technical planning / architecture</option><option>Something else</option></select></div></div><div class="field"><label for="message">The problem, in a few lines</label><textarea id="message" name="message" rows="5" maxlength="4000" required></textarea></div><button class="btn btn--primary" type="submit">Send enquiry <svg class="arw" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" /></svg></button><p class="form__status" role="status" aria-live="polite" id="form-status"></p><p class="form__hint">This opens a pre-filled email to the address above. A server-side form or CRM can be connected later.</p></form>
       </div></section>
     </main>
     <footer class="footer"><div class="shell"><div class="footer__top"><div><a class="brand" href="#top" aria-label="Leano ITC — home"><svg width="30" height="30" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 5.5V17.5H18" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" /><path d="M13 11V23h9" stroke="currentColor" stroke-opacity="0.45" stroke-width="2.4" stroke-linecap="square" /></svg><span class="brand__name">Leano ITC<span class="brand__sub">Software &amp; Development</span></span></a><p>Software development, business systems and technical engineering work from Pretoria.</p></div><div><h3 class="footer__label">Explore</h3><ul role="list"><li><a href="#services">Services</a></li><li><a href="#work">Projects</a></li><li><a href="#stack">Stack</a></li></ul></div><div><h3 class="footer__label">Contact</h3><ul role="list"><li><a href="mailto:maluleka.isaacjr@gmail.com">Email</a></li><li><a href="tel:+27636447652">Phone</a></li><li><a href="#contact">Enquiry</a></li></ul></div></div><div class="footer__bottom"><p>© <span id="year">2026</span> Leano ITC. All rights reserved.</p><p>Pretoria, Gauteng, South Africa</p></div></div></footer>
