@@ -20,7 +20,7 @@
 
   function getStoredTheme() {
     try {
-      return window.localStorage.getItem('leano-theme');
+      return window.localStorage.getItem('site-theme');
     } catch (error) {
       return null;
     }
@@ -28,7 +28,7 @@
 
   function storeTheme(value) {
     try {
-      window.localStorage.setItem('leano-theme', value);
+      window.localStorage.setItem('site-theme', value);
     } catch (error) {
       // Storage may be disabled or unavailable in private/restricted contexts.
     }
