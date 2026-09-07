@@ -1,0 +1,58 @@
+/* Quality layer: small, reusable release safeguards kept separate from the main design system. */
+
+:root {
+  /* Noto Sans is an open-source, commercially usable family. It is referenced locally,
+     with platform fallbacks, so the site has no font/CDN dependency. */
+  --font-display: "Noto Sans", "Noto Sans Display", system-ui, sans-serif;
+  --font-body: "Noto Sans", system-ui, sans-serif;
+  --font-mono: "Noto Sans Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+/* Prevent a keyboard user from losing the location of an anchor under the sticky header. */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Native validation remains the source of truth; this only makes invalid fields visible. */
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  border-color: #b42318;
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.12);
+}
+
+/* Reduced motion must also suppress hover movement, not only transitions/animations. */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover,
+  .card:hover,
+  .btn:hover .arw {
+    transform: none;
+  }
+}
+
+/* Keep the form usable at extreme narrow widths. */
+@media (max-width: 359px) {
+  .form,
+  .card,
+  .work-item {
+    padding-inline: var(--space-4);
+  }
+
+  .hero__meta div {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* When scripts are unavailable the drawer should never create a hidden focus target. */
+.no-js .drawer {
+  display: none;
+}
+
+@media print {
+  .footer,
+  .form,
+  .hero__actions {
+    break-inside: avoid;
+  }
+}
