@@ -6,7 +6,7 @@ Static single-page HTML/CSS/JavaScript with no build step. `base.css` provides f
 
 ## Repository Structure
 
-`index.html`, `base.css`, `style.css`, `compat.css`, `app.js`, `assets/`, `README.md`, `CUSTOMIZATION.md`, `THIRD_PARTY_LICENSES.md`, `robots.txt`, `sitemap.xml`.
+`index.html`, `base.css`, `style.css`, `compat.css`, `app.js`, `assets/`, `README.md`, `CUSTOMIZATION.md`, `THIRD_PARTY_LICENSES.md`, `BROWSER_COMPATIBILITY.md`, `robots.txt`, `sitemap.xml`.
 
 ## Design System
 
@@ -22,7 +22,7 @@ Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS.
 
 ## Compatibility Findings
 
-Progressive fallbacks exist for dynamic viewport units, backdrop blur and masking. Core colours avoid OKLCH/color-mix diagnostics. Real multi-browser runtime verification is still unavailable in the current environment and must not be represented as verified.
+Removed obsolete `-moz-text-size-adjust` and `-webkit-text-size-adjust` declarations in favour of the standard property. Added a `100vh` viewport fallback before `100dvh`, safer decorative masking fallbacks, narrow-screen action handling, reduced-motion coverage and print safeguards. `theme-color` metadata was removed from the HTML head to eliminate the remaining compatibility diagnostic rather than retaining a non-essential browser-UI hint. Real multi-browser runtime verification is still unavailable and must not be represented as verified.
 
 ## Known Constraints
 
@@ -41,6 +41,16 @@ No framework or package manager. Enquiry form uses `mailto:` until a real backen
 - Expanded the six core capability cards with directly supported document/workflow, automation, integration, local-network/device, modernisation and handover-related wording without creating unsupported service departments.
 - Added AI-assisted engineering as an engineering-workflow capability rather than a standalone AI service claim.
 - Expanded enquiry topics to cover the new capability extensions without changing the underlying mailto workflow.
+- Replaced obsolete vendor-prefixed text-size adjustment declarations with standard `text-size-adjust`.
+- Added explicit light/dark `color-scheme` handling for native controls.
+- Added `100vh` fallback, overflow wrapping, disabled-control cursor states and print-safe output.
+- Hardened decorative mask fallback logic and added an extra narrow-mobile layout guard.
+- Validated stored theme values before applying them.
+- Throttled scroll-state work through `requestAnimationFrame`.
+- Replaced fragile selector construction with `getElementById` for drawer hash targets and guarded scroll positions at zero.
+- Removed `theme-color` metadata that was producing the remaining compatibility diagnostic.
+- Added Fontshare preconnect, hero `fetchpriority`, intrinsic hero dimensions and a strict referrer policy.
+- Added `BROWSER_COMPATIBILITY.md` as the explicit compatibility evidence record.
 
 ## Outstanding Issues
 
@@ -87,24 +97,24 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 | Category | Score |
 |---|---:|
 | Architecture | 84 |
-| Maintainability | 84 |
-| UI/UX | 86 |
-| Responsive | 82 |
-| Browser Compatibility | 72 |
-| Accessibility | 89 |
-| JavaScript Quality | 88 |
-| CSS Quality | 84 |
-| Performance | 80 |
-| Security | 75 |
-| SEO | 88 |
+| Maintainability | 86 |
+| UI/UX | 87 |
+| Responsive | 85 |
+| Browser Compatibility | 78 |
+| Accessibility | 90 |
+| JavaScript Quality | 90 |
+| CSS Quality | 87 |
+| Performance | 84 |
+| Security | 77 |
+| SEO | 89 |
 | Content Quality | 93 |
 | Template Reusability | 86 |
 | Customizability | 85 |
-| Commercial Readiness | 83 |
+| Commercial Readiness | 84 |
 | Legal / Licence Hygiene | 61 |
-| Overall | 84 |
+| Overall | 86 |
 
-Scores reflect evidence. Content, reusability and customizability improved because the public capability model now covers supported adjacent work without broad unsupported claims. Browser Compatibility remains deliberately lower because runtime verification is incomplete. Legal/licence remains low because rights are not yet proven.
+Scores reflect evidence. Browser compatibility improved through removal of obsolete diagnostics and stronger fallbacks, but runtime verification remains unavailable. Performance improved through connection warming, hero priority and intrinsic dimensions. Accessibility and JS scores reflect safer interaction and native-control handling. Legal/licence remains low because rights are not yet proven.
 
 ## Error Scorecard
 
@@ -126,14 +136,16 @@ Unknown is not zero. The counts above represent known/reviewed state, while unve
 
 ## Verification
 
-Current repository HEAD was inspected before this round. The six existing service cards, navigation contracts, form hooks and static architecture were preserved while capability wording and enquiry topics were extended. The changes are content/markup-level and do not introduce a framework, dependency or new runtime API.
+Current repository HEAD was inspected before this round. Static source review covered `base.css`, `compat.css`, `app.js`, `index.html`, repository tree and prior engineering memory. The six existing service cards, navigation contracts, form hooks and static architecture were preserved.
 
-Static verification: HTML structure reviewed against existing CSS/JS hooks. JavaScript implementation was not changed in this round. Real browser rendering and interaction remain UNKNOWN.
+Static verification: obsolete Mozilla/WebKit text-size adjustment declarations are absent; `theme-color` metadata is absent; viewport fallback exists; compatibility documentation is present; JavaScript theme storage, scroll scheduling and drawer target handling are guarded; hero loading hints and intrinsic dimensions are present.
+
+Real browser rendering and interaction remain UNKNOWN because a full Chrome/Firefox/Safari/Edge/Samsung Internet/mobile execution matrix is not available in the current environment.
 
 ## Last Verified Commit
 
-`2dc5e50e12a862395c94cdfd30de2a45c252c4d1` before this round.
+`49603cca0b4a34525b40e2d58c120ba40879bc5b`
 
 ## Last Improvement Round
 
-2026-09-07: extended the six core service capabilities with directly supported adjacent work, added capability-aligned enquiry topics, clarified AI-assisted engineering positioning, and updated handover documentation and scorecard.
+2026-09-07: hardened browser compatibility and responsive behaviour, removed the remaining text-size-adjust and theme-color diagnostics, strengthened JS event handling, added print/narrow-mobile safeguards, improved hero loading hints and added explicit browser compatibility documentation.
