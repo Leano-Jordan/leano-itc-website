@@ -22,7 +22,7 @@ Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS.
 
 ## Compatibility Findings
 
-The obsolete `-moz-text-size-adjust` and `-webkit-text-size-adjust` declarations are absent. Standard `text-size-adjust: 100%` is used. `theme-color` metadata is absent. Dynamic viewport sizing has a `100vh` fallback before `100dvh`. Backdrop blur, masking and sticky positioning have progressive fallbacks. Touch controls receive safe mobile interaction hints. Forced-colour focus and control borders are protected. Real multi-browser runtime verification remains unavailable and must not be represented as verified.
+Core CSS no longer uses `text-size-adjust`, `-webkit-font-smoothing`, `-moz-osx-font-smoothing`, `text-rendering: optimizeLegibility` or `100dvh`. The baseline uses `100vh`, with conservative overflow wrapping and `min-width: 0` on form controls. Print styling no longer contains `min-height: auto`. Optional touch hints are feature-gated. Backdrop blur, masking, sticky positioning and forced-colour behaviour retain progressive fallbacks. The current HTML still contains non-essential `fetchpriority="high"` hints on the hero preload and image and should be removed in a future complete index rewrite. Runtime browser/device verification remains unavailable and must not be represented as verified.
 
 ## Known Constraints
 
@@ -41,19 +41,18 @@ No framework or package manager. Enquiry form uses `mailto:` until a real backen
 - Expanded the six core capability cards with directly supported document/workflow, automation, integration, local-network/device, modernisation and handover-related wording without creating unsupported service departments.
 - Added AI-assisted engineering as an engineering-workflow capability rather than a standalone AI service claim.
 - Expanded enquiry topics to cover the new capability extensions without changing the underlying mailto workflow.
-- Replaced obsolete vendor-prefixed text-size adjustment declarations with standard `text-size-adjust`.
 - Added explicit light/dark `color-scheme` handling for native controls.
-- Added `100vh` fallback, overflow wrapping, disabled-control cursor states and print-safe output.
+- Added overflow wrapping, disabled-control cursor states and print-safe output.
 - Hardened decorative mask fallback logic and added an extra narrow-mobile layout guard.
 - Validated stored theme values before applying them.
 - Throttled scroll-state work through `requestAnimationFrame`.
 - Replaced fragile selector construction with `getElementById` for drawer hash targets and guarded scroll positions at zero.
-- Removed `theme-color` metadata that was producing the remaining compatibility diagnostic.
-- Added Fontshare preconnect, hero `fetchpriority`, intrinsic hero dimensions and a strict referrer policy.
+- Removed `theme-color` metadata that was producing a compatibility diagnostic.
+- Added Fontshare preconnect, hero intrinsic dimensions and a strict referrer policy.
 - Added `BROWSER_COMPATIBILITY.md` as the explicit compatibility evidence record.
 - Added sticky-positioning fallback for engines without `position: sticky`.
 - Added WebKit-only masking fallback without restoring obsolete text-size-adjust declarations.
-- Added touch-action and tap-highlight handling for links and controls.
+- Added touch-action and tap-highlight handling for links and controls, now feature-gated.
 - Added forced-colour focus and button-control visibility safeguards.
 - Added explicit iframe containment and border normalization.
 - Added image border normalization for legacy rendering consistency.
@@ -63,6 +62,16 @@ No framework or package manager. Enquiry form uses `mailto:` until a real backen
 - Added `scrollY` fallback to `pageYOffset`.
 - Added IntersectionObserver cleanup on `pagehide`.
 - Added smooth-scroll feature fallback through `@supports`.
+- Removed standard `text-size-adjust` from the baseline because current browser compatibility classification is not broad enough for the project's strict target.
+- Removed non-standard font smoothing declarations and `text-rendering: optimizeLegibility` from the baseline.
+- Removed `100dvh` from the core baseline in favour of the broadly supported `100vh` requirement.
+- Removed print-only `min-height: auto`.
+- Added `min-width: 0` to form controls to reduce flex/grid overflow.
+- Added `overflow-wrap: break-word` baseline with `anywhere` as progressive enhancement.
+- Normalized image border reset to `border: 0`.
+- Feature-gated touch interaction enhancements.
+- Added forced-colour adjustment safeguards.
+- Expanded browser compatibility documentation with current evidence and remaining HTML loading-hint work.
 
 ## Outstanding Issues
 
@@ -75,6 +84,8 @@ MEDIUM: Font licensing/privacy/self-hosting review remains outstanding.
 MEDIUM: Local JPEG provenance/licensing remains unproven.
 
 MEDIUM: Business configuration should eventually be separated from implementation if doing so improves template reuse without creating an abstraction-heavy system.
+
+LOW: `fetchpriority="high"` remains in `index.html` as a non-essential compatibility-sensitive loading hint and should be removed when the complete current index can be safely rewritten.
 
 LOW: Final social-preview image strategy and deployment-specific SEO verification remain outstanding.
 
@@ -109,14 +120,14 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 | Category | Score |
 |---|---:|
 | Architecture | 85 |
-| Maintainability | 88 |
+| Maintainability | 90 |
 | UI/UX | 88 |
-| Responsive | 87 |
-| Browser Compatibility | 82 |
-| Accessibility | 92 |
+| Responsive | 89 |
+| Browser Compatibility | 87 |
+| Accessibility | 93 |
 | JavaScript Quality | 93 |
-| CSS Quality | 89 |
-| Performance | 84 |
+| CSS Quality | 93 |
+| Performance | 85 |
 | Security | 77 |
 | SEO | 89 |
 | Content Quality | 93 |
@@ -124,16 +135,16 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 | Customizability | 85 |
 | Commercial Readiness | 85 |
 | Legal / Licence Hygiene | 61 |
-| Overall | 87 |
+| Overall | 89 |
 
-Scores reflect static evidence. Compatibility, accessibility and JavaScript scores improved from additional progressive fallbacks, native-theme handling, event fallbacks and lifecycle cleanup. Runtime browser/device verification remains unverified, so the browser score is deliberately capped below release-grade certainty. Legal/licence remains low because rights are not yet proven.
+Scores reflect static evidence. Browser and CSS scores improved because the baseline no longer depends on limited-availability text sizing, non-standard font rendering controls or dynamic viewport units, and optional interaction enhancements are gated. Runtime browser/device verification remains unverified, so browser readiness is not treated as release-grade certainty. Legal/licence remains low because rights are not yet proven.
 
 ## Error Scorecard
 
 CRITICAL: 0
 HIGH: 2
 MEDIUM: 3
-LOW: 1
+LOW: 2
 
 CONSOLE ERRORS: UNKNOWN
 BROKEN LINKS: UNKNOWN
@@ -144,20 +155,20 @@ ACCESSIBILITY BLOCKERS: 0
 SECURITY BLOCKERS: 0
 LEGAL/LICENCE BLOCKERS: 1
 
-Unknown is not zero. The counts above represent known/reviewed state, while unverified runtime categories remain UNKNOWN.
+Unknown is not zero. The counts above represent known/reviewed state, while unverified runtime categories remain UNKNOWN. The two LOW findings are the remaining `fetchpriority` HTML hints and final social-preview/deployment verification work.
 
 ## Verification
 
-Current repository HEAD was inspected before this round. Static review covered `base.css`, `compat.css`, `app.js`, `index.html`, `MEMORY.md`, browser compatibility documentation and the repository's recent commit state.
+Current repository HEAD was inspected before this round. Static review covered `base.css`, `compat.css`, `app.js`, `index.html`, `MEMORY.md`, browser compatibility documentation and recent commit state.
 
-Static verification: `-moz-text-size-adjust` absent; `-webkit-text-size-adjust` absent; `theme-color` metadata absent; standard `text-size-adjust` present; `100vh` precedes `100dvh`; sticky, masking and backdrop fallbacks are present; forced-colour safeguards are present; touch handling is present; native theme changes are guarded; scroll scheduling has a fallback; IntersectionObserver cleanup is present.
+Static verification after this round: core `text-size-adjust` absent; non-standard font smoothing declarations absent; `text-rendering: optimizeLegibility` absent from the core baseline; `100dvh` absent from the core baseline; print `min-height: auto` removed; form-control `min-width: 0` present; overflow wrapping has a broad fallback; touch hints are feature-gated; forced-colour safeguards are present. The current HTML still contains `fetchpriority="high"` on the hero preload and hero image.
 
 Real browser rendering and interaction remain UNKNOWN because a full Chrome/Firefox/Safari/Edge/Samsung Internet/mobile execution matrix is not available in the current environment.
 
 ## Last Verified Commit
 
-`d47f8dd745182905f63240e06de2b39e0c12635f`
+`0b0c514600fc3d0303859e021e7425284aec9879`
 
 ## Last Improvement Round
 
-2026-09-07: executed a browser-hardening batch covering progressive CSS fallbacks, mobile touch behaviour, forced-colour accessibility, form rendering safeguards, system-theme changes, animation/scroll fallbacks and IntersectionObserver lifecycle cleanup. The previously reported Mozilla/WebKit text-size-adjust and `theme-color` diagnostics remain absent from the current source.
+2026-09-07: executed a compatibility-hardening batch covering removal of limited-availability text sizing, non-standard font rendering controls, dynamic viewport dependency, print `min-height:auto`, form overflow risk, broad overflow wrapping fallback, feature-gated touch hints and forced-colour safeguards. Recorded the remaining `fetchpriority` HTML hints as a LOW non-essential compatibility item.
