@@ -1,5 +1,5 @@
 /* Browser compatibility layer.
-   Progressive enhancement only. Core layout and colours use broadly supported CSS;
+    Progressive enhancement only. Core layout and colours use broadly supported CSS;
    this file provides safe fallbacks for optional visual features. */
 
 /* Older browsers do not understand dynamic viewport units. */
