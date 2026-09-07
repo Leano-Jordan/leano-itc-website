@@ -9,6 +9,13 @@
   }
 }
 
+/* Sticky positioning is progressive. Keep the header usable if unsupported. */
+@supports not (position: sticky) {
+  .header {
+    position: relative;
+  }
+}
+
 /* Backdrop blur is decorative, never structural. */
 .header {
   background: rgba(247, 246, 250, 0.96);
@@ -56,6 +63,34 @@
   }
 }
 
+@supports (-webkit-mask-image: linear-gradient(black, transparent)) and (not (mask-image: linear-gradient(black, transparent))) {
+  .hero__grid {
+    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
+  }
+}
+
+/* Improve touch interaction without changing keyboard behaviour. */
+a,
+button,
+select,
+summary {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Preserve visible focus when forced-colour modes override author colours. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: 2px solid CanvasText;
+    outline-offset: 3px;
+  }
+
+  .btn,
+  .icon-btn {
+    border: 1px solid ButtonText;
+  }
+}
+
 /* Keep the collapsed mobile navigation out of the focus order visually and
    in combination with the JavaScript tabindex handling. */
 .drawer[data-open='false'] {
@@ -75,5 +110,12 @@
 
   .hero__actions .btn {
     width: 100%;
+  }
+}
+
+/* If smooth scrolling is unavailable, native anchor navigation still works. */
+@supports not (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: auto;
   }
 }
