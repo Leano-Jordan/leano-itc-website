@@ -41,11 +41,18 @@
   }
 }
 
-/* Masking is decorative. Older engines simply receive an unmasked grid. */
+/* Masking is decorative. Prefer the unmasked grid whenever the standard
+   property is unavailable, including engines with only a WebKit prefix. */
 @supports not (mask-image: linear-gradient(black, transparent)) {
   .hero__grid {
     -webkit-mask-image: none;
     mask-image: none;
+  }
+}
+
+@supports (mask-image: linear-gradient(black, transparent)) {
+  .hero__grid {
+    mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
   }
 }
 
@@ -57,4 +64,16 @@
 
 .drawer[data-open='true'] {
   visibility: visible;
+}
+
+/* Very narrow screens: prevent decorative horizontal transforms from becoming
+   a source of accidental page overflow. */
+@media (max-width: 359px) {
+  .shell {
+    padding-inline: var(--space-4);
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
 }

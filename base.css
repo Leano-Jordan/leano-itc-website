@@ -8,8 +8,7 @@
 }
 
 html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -17,7 +16,16 @@ html {
   scroll-padding-top: var(--space-20);
 }
 
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
 body {
+  min-height: 100vh;
   min-height: 100dvh;
   line-height: 1.6;
   font-family: var(--font-body, sans-serif);
@@ -50,6 +58,12 @@ select {
   color: inherit;
 }
 
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
 h1,
 h2,
 h3,
@@ -63,6 +77,7 @@ p,
 li,
 figcaption {
   max-width: 72ch;
+  overflow-wrap: anywhere;
 }
 
 ::selection {
@@ -93,6 +108,13 @@ button {
   border: none;
 }
 
+button:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+  cursor: not-allowed;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -111,6 +133,28 @@ select {
     border-color var(--transition-interactive),
     box-shadow var(--transition-interactive),
     transform var(--transition-interactive);
+}
+
+@media print {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .header,
+  .drawer,
+  .skip,
+  .hero__bg,
+  .hero__grid,
+  .approach__bg,
+  .strip {
+    display: none !important;
+  }
+
+  body {
+    min-height: auto;
+    background: #fff;
+    color: #000;
+  }
 }
 
 .sr-only {
