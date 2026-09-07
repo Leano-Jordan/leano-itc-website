@@ -1,23 +1,47 @@
 /* Browser compatibility layer.
-   Progressive enhancement: modern browsers keep the art direction in style.css;
-   older browsers receive stable fallbacks instead of losing the layout. */
+   Progressive enhancement only. Core layout and colours use broadly supported CSS;
+   this file provides safe fallbacks for optional visual features. */
 
+/* Older browsers do not understand dynamic viewport units. */
 @supports not (height: 100dvh) {
   body {
     min-height: 100vh;
   }
 }
 
-@supports not (backdrop-filter: blur(1px)) {
+/* Backdrop blur is decorative, never structural. */
+.header {
+  background: rgba(247, 246, 250, 0.96);
+}
+
+[data-theme='dark'] .header {
+  background: rgba(16, 15, 26, 0.96);
+}
+
+@supports (backdrop-filter: blur(1px)) {
   .header {
-    background: rgba(247, 246, 250, 0.96);
+    background: rgba(247, 246, 250, 0.82);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    backdrop-filter: blur(14px) saturate(140%);
   }
 
   [data-theme='dark'] .header {
-    background: rgba(16, 15, 26, 0.96);
+    background: rgba(16, 15, 26, 0.82);
   }
 }
 
+.btn--onDark {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .btn--onDark {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+}
+
+/* Masking is decorative. Older engines simply receive an unmasked grid. */
 @supports not (mask-image: linear-gradient(black, transparent)) {
   .hero__grid {
     -webkit-mask-image: none;
@@ -25,62 +49,8 @@
   }
 }
 
-@supports not (color: oklch(0 0 0)) {
-  :root,
-  [data-theme='light'] {
-    --shadow-sm: 0 1px 2px rgba(32, 25, 55, 0.07);
-    --shadow-md: 0 6px 20px rgba(32, 25, 55, 0.08);
-    --shadow-lg: 0 18px 44px rgba(32, 25, 55, 0.13);
-  }
-
-  [data-theme='dark'] {
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.38);
-    --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.5);
-  }
-}
-
-@supports not (color: color-mix(in srgb, black, white)) {
-  ::selection {
-    background: rgba(85, 52, 155, 0.25);
-  }
-
-  .btn--ghost {
-    background: rgba(255, 255, 255, 0.6);
-  }
-
-  [data-theme='dark'] .btn--ghost {
-    background: rgba(27, 25, 39, 0.8);
-  }
-
-  .card:hover {
-    border-color: #8b72c6;
-  }
-
-  .work-item::before {
-    background: linear-gradient(to right, #55349b, rgba(85, 52, 155, 0.2));
-  }
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-  .btn--onDark {
-    background: rgba(255, 255, 255, 0.08);
-  }
-}
-
-@supports (backdrop-filter: blur(1px)) {
-  .header {
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    backdrop-filter: blur(14px) saturate(140%);
-  }
-
-  .btn--onDark {
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-}
-
-/* Keep the mobile navigation out of the focus order while collapsed. */
+/* Keep the collapsed mobile navigation out of the focus order visually and
+   in combination with the JavaScript tabindex handling. */
 .drawer[data-open='false'] {
   visibility: hidden;
 }
