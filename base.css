@@ -10,12 +10,10 @@
 html {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
-  text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
-  hanging-punctuation: first last;
   scroll-padding-top: var(--space-20);
 }
 
@@ -38,10 +36,12 @@ svg {
   max-width: 100%;
   height: auto;
 }
+
 ul[role='list'],
 ol[role='list'] {
   list-style: none;
 }
+
 input,
 button,
 textarea,
@@ -56,18 +56,17 @@ h3,
 h4,
 h5,
 h6 {
-  text-wrap: balance;
   line-height: 1.15;
 }
+
 p,
 li,
 figcaption {
-  text-wrap: pretty;
   max-width: 72ch;
 }
 
 ::selection {
-  background: color-mix(in oklab, var(--color-primary) 25%, transparent);
+  background: rgba(85, 52, 155, 0.25);
   color: var(--color-text);
 }
 
@@ -93,6 +92,7 @@ button {
   background: none;
   border: none;
 }
+
 table {
   border-collapse: collapse;
   width: 100%;
