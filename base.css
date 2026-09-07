@@ -8,10 +8,6 @@
 }
 
 html {
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
   scroll-behavior: smooth;
   scroll-padding-top: var(--space-20);
 }
@@ -26,7 +22,6 @@ html[data-theme='dark'] {
 
 body {
   min-height: 100vh;
-  min-height: 100dvh;
   line-height: 1.6;
   font-family: var(--font-body, sans-serif);
   font-size: var(--text-base);
@@ -46,7 +41,7 @@ svg {
 }
 
 img {
-  border-style: none;
+  border: 0;
 }
 
 iframe {
@@ -71,6 +66,7 @@ input,
 textarea,
 select {
   max-width: 100%;
+  min-width: 0;
 }
 
 textarea {
@@ -90,7 +86,15 @@ p,
 li,
 figcaption {
   max-width: 72ch;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+@supports (overflow-wrap: anywhere) {
+  p,
+  li,
+  figcaption {
+    overflow-wrap: anywhere;
+  }
 }
 
 ::selection {
@@ -164,7 +168,6 @@ select {
   }
 
   body {
-    min-height: auto;
     background: #fff;
     color: #000;
   }
