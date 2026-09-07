@@ -69,13 +69,24 @@
   }
 }
 
-/* Improve touch interaction without changing keyboard behaviour. */
-a,
-button,
-select,
-summary {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+/* Touch hints are optional. Engines without touch-action support simply use
+   their normal pointer/touch behaviour. */
+@supports (touch-action: manipulation) {
+  a,
+  button,
+  select,
+  summary {
+    touch-action: manipulation;
+  }
+}
+
+@supports (-webkit-tap-highlight-color: transparent) {
+  a,
+  button,
+  select,
+  summary {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 /* Preserve visible focus when forced-colour modes override author colours. */
@@ -88,6 +99,12 @@ summary {
   .btn,
   .icon-btn {
     border: 1px solid ButtonText;
+  }
+
+  .btn--primary,
+  .btn--ghost,
+  .btn--onDark {
+    forced-color-adjust: none;
   }
 }
 
