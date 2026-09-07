@@ -2,211 +2,150 @@
 
 ## CURRENT BASELINE
 
-Current repository state: `main` after browser-compatibility, validity hardening and engineering-memory setup.
+Current repository state: `main` after browser-compatibility cleanup, CSS syntax simplification, contact definition-list repair and repository rescan.
 Current branch: `main`
-Current repository HEAD: `60889ddc06a3a4052a105f728a543d034fdd60ef`
-Current implementation commit: `11273fff6be50377d02d1a0f3d3195e90847e827`
+Current repository HEAD: `6dd43d9545976073597dcd5dd6338229ae74508e`
 Current architecture: Static single-page HTML/CSS/JavaScript site with no build step.
 Current stack: HTML5, CSS, vanilla JavaScript, inline SVG, local JPEG assets, external web fonts.
 
 ## TEMPLATE ARCHITECTURE
 
-Foundation: `base.css` plus design tokens in `style.css`.
-Layout: `.shell`, `.section`, responsive CSS Grid/Flexbox primitives.
+Foundation: `base.css` + design tokens/components in `style.css`.
+Layout: `.shell`, `.section`, CSS Grid/Flexbox primitives.
 Components: header, mobile drawer, buttons, cards, steps, work items, form, footer, theme toggle, scroll reveal.
-Pages: `index.html` single-page implementation.
+Pages: `index.html` single page.
 Assets: `assets/hero.jpg`, `assets/studio.jpg`, `assets/texture.jpg`.
-Configuration: Site metadata and business-specific content currently live in `index.html`; further centralisation is a future improvement.
-Compatibility: `compat.css` provides progressive fallbacks for selected newer CSS features.
+Configuration: Business content and metadata remain mainly in `index.html`.
+Compatibility: `compat.css` supplies progressive fallbacks; core CSS now uses broadly supported RGB/hex syntax instead of OKLCH/color-mix.
 
 ## DESIGN SYSTEM
 
 Typography: Cabinet Grotesk, Satoshi, JetBrains Mono with system fallbacks.
-Spacing: CSS custom-property spacing scale from `--space-1` through `--space-32`.
-Colours: Purple primary palette with light/dark theme tokens and ink/surface roles.
-Components: Pill buttons, cards, chips, form controls, navigation, content bands and reusable section primitives.
-Responsive rules: Mobile-first layout with major layout changes at 560px, 800px, 860px and 900px; intended review widths include 375, 390, 430, 768, 1024, 1280 and 1440px.
+Spacing: `--space-1` through `--space-32`.
+Colours: Purple primary palette with light/dark theme tokens.
+Responsive breakpoints: 560px, 800px, 860px and 900px. Review targets: 375, 390, 430, 768, 1024, 1280, 1440px.
 
 ## KNOWN DECISIONS
 
-Decision: Preserve the existing vanilla HTML/CSS/JS architecture rather than introducing a framework.
-Reason: The repository is a small static site and does not need framework complexity.
-Date: 2026-09-07
-Impact: Lower maintenance and easier reuse as a static template.
+Decision: Keep vanilla HTML/CSS/JS.
+Reason: Static site does not need framework complexity.
+Date: 2026-09-07.
 
-Decision: Add a compatibility layer instead of rewriting the design system to older CSS syntax.
-Reason: Modern browsers can retain the existing visual treatment while older browsers receive functional fallbacks.
-Date: 2026-09-07
-Impact: Better progressive enhancement with a small, isolated compatibility surface.
+Decision: Use progressive browser enhancement rather than a framework/build migration.
+Reason: Preserve existing visual design while providing fallbacks.
+Date: 2026-09-07.
 
-Decision: Use native form validation and `mailto:` for the current enquiry flow.
-Reason: No backend or CRM integration exists in the repository.
-Date: 2026-09-07
-Impact: The form remains static-site compatible; production CRM/inbox wiring remains manual work.
+Decision: Prefer broadly supported sRGB/RGB CSS syntax for core visual properties.
+Reason: Reduce compatibility diagnostics and parsing risk on older supported browsers.
+Date: 2026-09-07.
+
+Decision: Keep native form validation + `mailto:`.
+Reason: No backend/CRM exists in the repository.
+Date: 2026-09-07.
 
 ## COMPLETED WORK
 
 Date: 2026-09-07
 Change: Hardened theme storage, mobile navigation, reduced-motion handling, form validation and mailto behaviour.
 Files: `app.js`
-Verification: JavaScript syntax check passed locally; repository content re-fetched after commit.
+Verification: JavaScript syntax check passed locally.
 Commit: `bc00d41c922f63218701e61e36636b205ad39a72`
 
 Date: 2026-09-07
-Change: Fixed malformed favicon markup, corrected invalid `<dbl>` semantics, corrected phone URI, cleaned metadata, added social metadata, improved image loading hints and removed unsupported-looking commitment statistics from the visible template baseline.
+Change: Fixed HTML validity/semantics, metadata, favicon markup, phone URI and removed unsupported image fetch-priority hint.
 Files: `index.html`
-Verification: Current file re-fetched from `main`; contact markup and corrected phone URI confirmed.
-Commit: `be817eb4e098e056aa640028ce645a8b40607c51`
+Verification: Current file re-fetched; contact definition-list structure corrected.
+Commit: `6dd43d9545976073597dcd5dd6338229ae74508e`
 
 Date: 2026-09-07
-Change: Added progressive browser compatibility fallbacks and collapsed-drawer visibility protection.
+Change: Added browser compatibility fallbacks, corrected WebKit/standard backdrop-filter ordering, mask fallback ordering and drawer visibility protection.
 Files: `compat.css`
-Verification: CSS compatibility layer parsed locally with `tinycss2` with zero parse errors; file re-fetched from `main`.
-Commit: `11273fff6be50377d02d1a0f3d3195e90847e827`
+Verification: Parsed locally with `tinycss2`: 0 parse errors.
+Commit: `8166599f315eb7aaa19fbbd9e37603831c8a1a6b`
 
 Date: 2026-09-07
-Change: Added persistent engineering memory and release scorecard.
+Change: Removed unsupported base CSS diagnostics for text-size-adjust, hanging-punctuation and text-wrap.
+Files: `base.css`
+Verification: Current file re-fetched.
+Commit: `aac01b305820b1b31571a23ae928108b90bdea6f`
+
+Date: 2026-09-07
+Change: Replaced OKLCH/color-mix usage with RGB/hex equivalents and added WebKit + standard backdrop/mask declarations.
+Files: `style.css`
+Verification: Current file re-fetched; targeted compatibility declarations confirmed.
+Commit: `f3954add8f86996419d437ec2231d231618c6741`
+
+Date: 2026-09-07
+Change: Added persistent engineering memory and scorecard.
 Files: `MEMORY.md`
-Verification: File re-fetched from `main` after update.
 Commit: `60889ddc06a3a4052a105f728a543d034fdd60ef`
 
 ## CURRENT SCORECARD
 
 Architecture: 82
-Maintainability: 79
+Maintainability: 80
 Visual: 84
 UX: 83
 Responsive: 82
-Accessibility: 84
-Performance: 78
+Accessibility: 87
+Performance: 79
 SEO: 82
 Security: 75
-Code Quality: 81
+Code Quality: 85
 Content: 72
-Commercial: 73
+Commercial: 75
 Legal/IP: 58
-Reusability: 75
-Overall: 77
+Reusability: 77
+Overall: 79
 
-Scoring note: Scores are engineering estimates from the current repository inspection, not automated compliance results. Legal/IP remains deliberately low because asset licensing and business-specific rights are not proven by the repository alone.
+Scores are engineering estimates from repository evidence, not compliance certificates. Legal/IP remains low because asset licensing and business rights are not proven by the repository.
 
 ## OPEN ISSUES
 
-Priority: HIGH
-Issue: Full cross-browser runtime verification has not been executed in real Chrome, Edge, Firefox and Safari sessions in this environment.
-Status: UNKNOWN / ENVIRONMENT LIMIT
-Affected files: Whole site.
-Required action: Run browser matrix tests on real target browsers or a browser automation service.
+HIGH: Real Chrome/Edge/Firefox/Safari runtime matrix has not been completed in this environment. Status: UNKNOWN / ENVIRONMENT LIMIT.
 
-Priority: HIGH
-Issue: Business-specific service and technology claims are not independently substantiated by this repository.
-Status: MANUAL REVIEW REQUIRED
-Affected files: `index.html`
-Required action: Confirm which services, technologies, outcomes and commercial claims Leano ITC is authorised and genuinely able to advertise.
+HIGH: Business-specific service, technology, outcome and commercial claims require owner confirmation. Status: MANUAL REVIEW REQUIRED.
 
-Priority: MEDIUM
-Issue: External fonts are loaded from Fontshare and Google Fonts.
-Status: REVIEW
-Affected files: `index.html`
-Required action: Confirm licensing, availability, privacy implications and whether self-hosting is preferable for a reusable commercial template.
+MEDIUM: Fontshare and Google Fonts licensing/privacy/self-hosting should be reviewed before commercial template distribution.
 
-Priority: MEDIUM
-Issue: SEO infrastructure is incomplete for a production template.
-Status: OPEN
-Affected files: Repository root.
-Required action: Add and verify `robots.txt`, `sitemap.xml`, deployment-aware canonical configuration and production social-image strategy where appropriate.
+MEDIUM: Production SEO infrastructure still needs robots.txt, sitemap.xml, deployment-aware canonical handling and a final social-image strategy.
 
-Priority: MEDIUM
-Issue: Business configuration is embedded directly in `index.html`.
-Status: OPEN
-Affected files: `index.html`
-Required action: Introduce a lightweight content/config layer only if it simplifies future duplication without adding build complexity.
+MEDIUM: Business configuration is still embedded mainly in `index.html`; centralise only if it genuinely improves reuse.
+
+LOW: VS Code cSpell flags valid vocabulary such as `lede`, `textlink` and `nums`. Editor warning only, no runtime impact.
 
 ## MANUAL WORK
 
-Item: Confirm final business claims, services, technology stack and illustrative work examples.
-Reason: Repository evidence alone cannot prove commercial capability claims.
-Owner: Site owner.
-Status: Pending.
-
-Item: Confirm rights/licences for supplied imagery, fonts, icons and other third-party assets before commercial distribution.
-Reason: Technical inspection cannot establish legal ownership or licensing history.
-Owner: Site owner.
-Status: Pending.
-
-Item: Connect the enquiry form to a real inbox/CRM if a direct `mailto:` flow is not sufficient for production.
-Reason: No backend/form service exists in the current architecture.
-Owner: Site owner.
-Status: Pending.
-
-Item: Perform final real-browser matrix testing, including Safari on macOS/iOS.
-Reason: The current environment does not provide a full browser automation matrix.
-Owner: Site owner / release environment.
-Status: Pending.
+- Confirm final business/service/technology claims and illustrative work.
+- Confirm rights/licences for imagery, fonts, icons and third-party assets.
+- Connect the enquiry form to a real inbox/CRM if `mailto:` is insufficient.
+- Run final real-browser matrix testing, including Safari macOS/iOS.
 
 ## DEPENDENCIES
 
-Package: None.
-Purpose: No npm/runtime dependency is currently required by the site.
-Licence: N/A.
-Status: Good for static distribution.
-
-External resource: Fontshare CSS endpoint.
-Purpose: Cabinet Grotesk and Satoshi fonts.
-Licence: Must be confirmed from the font/source terms before redistribution.
-Status: Review.
-
-External resource: Google Fonts CSS endpoint.
-Purpose: JetBrains Mono.
-Licence: Font licence and Google Fonts delivery terms should be confirmed for the final commercial template.
-Status: Review.
+Runtime/package dependencies: None.
+External CSS: Fontshare for Cabinet Grotesk/Satoshi; Google Fonts for JetBrains Mono. Licensing and delivery terms require final review.
 
 ## LEGAL/IP NOTES
 
-Asset: `assets/hero.jpg`, `assets/studio.jpg`, `assets/texture.jpg`.
-Source/licence: Not established by repository evidence.
-Concern: Commercial redistribution rights are unknown.
-Action: Confirm provenance/licence or replace with owned/permissively licensed assets.
-
-Asset: External fonts.
-Source/licence: External providers.
-Concern: Final template distribution and self-hosting rights should be checked.
-Action: Record exact licences before release.
+Local JPEG provenance/licensing is not established by repository evidence.
+External font licensing must be confirmed before redistribution.
+No legal-compliance claim is made from this technical audit.
 
 ## TEMPLATE CUSTOMIZATION NOTES
 
-What can be changed safely: Visible business copy, contact details, navigation labels, service cards, work examples, colours through design tokens, typography declarations, imagery paths and metadata.
-Where: Primarily `index.html`, `style.css`, `base.css`, and `assets/`.
-How: Replace business-specific content and assets while preserving IDs/classes used by JavaScript and navigation.
+Safe customization areas: visible business copy, contact details, navigation labels, service/work content, design tokens, typography, imagery paths and metadata.
+Primary files: `index.html`, `style.css`, `base.css`, `assets/`.
+Preserve JavaScript/navigation IDs, classes and data attributes when adapting.
 
 ## NEXT VERIFIED PRIORITY
 
-Issue: Complete a deeper accessibility/SEO/content audit and establish a browser test matrix.
-Reason: Foundation and obvious browser-facing defects have been addressed; the next risk is release confidence rather than cosmetic change.
-Expected improvement: Higher evidence quality and fewer unknowns before commercial-template release.
+Issue: Establish a repeatable real-browser smoke-test matrix, then continue the deeper content/claim audit.
+Reason: The reported compatibility and HTML-structure defects have been addressed; runtime browser evidence is now the main gap.
 
 ## RELEASE HISTORY
 
-Commit: `bc00d41c922f63218701e61e36636b205ad39a72`
-Date: 2026-09-07
-Changes: JavaScript resilience and interaction hardening.
-Score: 75/100 estimated interim baseline.
-Verification: Local syntax check + repository rescan.
-
-Commit: `be817eb4e098e056aa640028ce645a8b40607c51`
-Date: 2026-09-07
-Changes: HTML validity, semantics, metadata, claims cleanup and browser-facing fixes.
-Score: 76/100 estimated interim baseline.
-Verification: Repository rescan and targeted structural inspection.
-
-Commit: `11273fff6be50377d02d1a0f3d3195e90847e827`
-Date: 2026-09-07
-Changes: Progressive browser compatibility layer.
-Score: 77/100 estimated current baseline.
-Verification: CSS parse test passed; repository rescanned.
-
-Commit: `60889ddc06a3a4052a105f728a543d034fdd60ef`
-Date: 2026-09-07
-Changes: Persistent engineering memory and scorecard.
-Score: 77/100
-Verification: Repository rescan completed.
+`bc00d41c922f63218701e61e36636b205ad39a72` — JS resilience and interaction hardening — 75/100.
+`be817eb4e098e056aa640028ce645a8b40607c51` — HTML validity, semantics, metadata and browser-facing fixes — 76/100.
+`11273fff6be50377d02d1a0f3d3195e90847e827` — Progressive compatibility layer — 77/100.
+`6dd43d9545976073597dcd5dd6338229ae74508e` — Compatibility cleanup, core CSS syntax simplification, contact semantics and fetch-priority cleanup — 79/100.
