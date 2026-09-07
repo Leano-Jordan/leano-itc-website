@@ -2,9 +2,9 @@
 
 ## CURRENT BASELINE
 
-Current repository state: `main` after browser-compatibility and validity hardening pass.
+Current repository state: `main` after browser-compatibility, validity hardening and engineering-memory setup.
 Current branch: `main`
-Current commit: `11273fff6be50377d02d1a0f3d3195e90847e827`
+Current commit: `106fad9dbd94287704d834e3603e461430f70e21`
 Current architecture: Static single-page HTML/CSS/JavaScript site with no build step.
 Current stack: HTML5, CSS, vanilla JavaScript, inline SVG, local JPEG assets, external web fonts.
 
@@ -62,6 +62,12 @@ Change: Added progressive browser compatibility fallbacks and collapsed-drawer v
 Files: `compat.css`
 Verification: CSS compatibility layer parsed locally with `tinycss2` with zero parse errors; file re-fetched from `main`.
 Commit: `11273fff6be50377d02d1a0f3d3195e90847e827`
+
+Date: 2026-09-07
+Change: Added persistent engineering memory and release scorecard.
+Files: `MEMORY.md`
+Verification: File re-fetched from `main` after update.
+Commit: `106fad9dbd94287704d834e3603e461430f70e21`
 
 ## CURRENT SCORECARD
 
@@ -197,3 +203,9 @@ Date: 2026-09-07
 Changes: Progressive browser compatibility layer.
 Score: 77/100 estimated current baseline.
 Verification: CSS parse test passed; repository rescanned.
+
+Commit: `106fad9dbd94287704d834e3603e461430f70e21`
+Date: 2026-09-07
+Changes: Persistent engineering memory and scorecard.
+Score: 77/100
+Verification: Repository rescan completed.
