@@ -9,6 +9,12 @@
   const reducedMotionQuery = typeof window.matchMedia === 'function'
     ? window.matchMedia('(prefers-reduced-motion: reduce)')
     : null;
+  const raf = typeof window.requestAnimationFrame === 'function'
+    ? window.requestAnimationFrame.bind(window)
+    : function (callback) { return window.setTimeout(callback, 16); };
+  const getScrollY = function () {
+    return typeof window.scrollY === 'number' ? window.scrollY : window.pageYOffset || 0;
+  };
 
   /* ---------- Theme toggle ---------- */
   const sun =
@@ -35,7 +41,8 @@
     }
   }
 
-  let mode = getStoredTheme() || (mediaQuery && mediaQuery.matches ? 'dark' : 'light');
+  const storedTheme = getStoredTheme();
+  let mode = storedTheme || (mediaQuery && mediaQuery.matches ? 'dark' : 'light');
 
   function paint() {
     root.setAttribute('data-theme', mode);
@@ -57,15 +64,28 @@
     });
   }
 
+  /* Follow OS theme changes only until the visitor chooses a preference. */
+  if (!storedTheme && mediaQuery) {
+    const onSystemThemeChange = function (event) {
+      mode = event.matches ? 'dark' : 'light';
+      paint();
+    };
+    if (typeof mediaQuery.addEventListener === 'function') {
+      mediaQuery.addEventListener('change', onSystemThemeChange);
+    } else if (typeof mediaQuery.addListener === 'function') {
+      mediaQuery.addListener(onSystemThemeChange);
+    }
+  }
+
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('site-header');
   let scrollTicking = false;
   const onScroll = function () {
     if (scrollTicking) return;
     scrollTicking = true;
-    window.requestAnimationFrame(function () {
+    raf(function () {
       if (header) {
-        header.classList.toggle('header--scrolled', window.scrollY > 8);
+        header.classList.toggle('header--scrolled', getScrollY() > 8);
       }
       scrollTicking = false;
     });
@@ -103,16 +123,17 @@
     });
 
     function scrollToTarget(target) {
-      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      const top = target.getBoundingClientRect().top + getScrollY() - 80;
+      const safeTop = Math.max(0, top);
       const smooth = !(reducedMotionQuery && reducedMotionQuery.matches);
 
       try {
         window.scrollTo({
-          top: Math.max(0, top),
+          top: safeTop,
           behavior: smooth ? 'smooth' : 'auto',
         });
       } catch (error) {
-        window.scrollTo(0, Math.max(0, top));
+        window.scrollTo(0, safeTop);
       }
     }
 
@@ -128,7 +149,7 @@
         const target = document.getElementById(href.slice(1));
         if (!target) return;
 
-        window.requestAnimationFrame(function () {
+        raf(function () {
           scrollToTarget(target);
         });
       });
@@ -167,6 +188,10 @@
     items.forEach(function (el) {
       io.observe(el);
     });
+
+    window.addEventListener('pagehide', function () {
+      io.disconnect();
+    }, { once: true });
   } else {
     items.forEach(function (el) {
       el.classList.add('is-in');
