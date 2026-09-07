@@ -113,7 +113,7 @@ LEGAL/LICENCE BLOCKERS: 1
 Unknown is not zero.
 
 ## Last Verified Commit
-`ee90daae69e8e1b6591640d583e2a59c7fe029bf` (pre-round HEAD)
+`71a380efb5ac9cfbdb37b83ecb8e98379c9f320b`
 
 ## Last Improvement Round
 2026-09-07: reconciled stale security and browser-compatibility documentation with the current repository implementation. Static verification only; runtime browser/device matrix remains UNKNOWN.
