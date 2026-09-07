@@ -16,7 +16,7 @@ Sticky header, desktop navigation, mobile drawer, theme toggle, buttons, hero, c
 Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS. Runtime matrix remains UNKNOWN.
 
 ## Compatibility Findings
-Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Quality safeguards now cover mobile control typography, visible keyboard focus, long-value wrapping, coarse-pointer hover behaviour, high-contrast preferences, native control colour schemes, reduced-motion scrolling and print URL visibility. Runtime browser/device verification is still not claimed.
+Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Quality safeguards cover mobile control typography, visible keyboard focus, long-value wrapping, coarse-pointer hover behaviour, high-contrast preferences, native control colour schemes, reduced-motion scrolling and print URL visibility. Static compatibility documentation has been reconciled with the current implementation. Runtime browser/device verification is still not claimed.
 
 ## Completed Improvements
 - Removed Fontshare and Google Fonts network dependencies.
@@ -42,6 +42,8 @@ Progressive fallbacks remain for sticky positioning, backdrop blur, masking, tou
 - Added print-time external URL visibility.
 - Added owner/IP provenance, AI-assisted development and asset provenance records.
 - Expanded the customization hand-off guide with a safe replacement order.
+- Reconciled `SECURITY.md` with the current no-CDN static implementation and documented the real `mailto:` form boundary.
+- Reconciled `BROWSER_COMPATIBILITY.md` with the current implementation and removed the stale `fetchpriority` known-issue claim.
 
 ## Known Constraints
 No framework or package manager. The enquiry form uses `mailto:` until a real backend/CRM exists. Business configuration is mainly in `index.html`. Noto is not bundled yet, so exact typography depends on whether Noto is installed; safe system fallbacks are provided.
@@ -111,7 +113,7 @@ LEGAL/LICENCE BLOCKERS: 1
 Unknown is not zero.
 
 ## Last Verified Commit
-`b711a889af21c52322fccb01ad749d6f9e67d43a`
+`ee90daae69e8e1b6591640d583e2a59c7fe029bf` (pre-round HEAD)
 
 ## Last Improvement Round
-2026-09-07: completed a commercial-readiness batch covering ten CSS/release safeguards, template hand-off documentation, owner/IP provenance, AI-assisted development provenance, asset provenance and licensing boundaries. Static verification only; runtime browser/device matrix remains UNKNOWN.
+2026-09-07: reconciled stale security and browser-compatibility documentation with the current repository implementation. Static verification only; runtime browser/device matrix remains UNKNOWN.
