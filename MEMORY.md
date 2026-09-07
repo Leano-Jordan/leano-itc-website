@@ -4,7 +4,7 @@
 
 Current repository state: `main` after factual service/project positioning, browser-compatibility cleanup, documentation alignment, and semantic styling-hook fixes.
 Current branch: `main`
-Current repository HEAD: `a5ea77ee1ee15e7c410942ae4db5980a86438bb2`
+Current repository HEAD: `bb50268cb8b0cbee06a8a450eec87debcdff1447`
 Architecture: Static single-page HTML/CSS/JavaScript, no build step.
 Stack: HTML5, CSS, vanilla JavaScript, inline SVG, local JPEG assets, external web fonts.
 
@@ -47,7 +47,7 @@ Breakpoints: 560px, 800px, 860px, 900px. Review widths: 375, 390, 430, 768, 1024
 - `f09f9e9e8d1a480bfa5719d65bf95dd916b4ca91`: updated engineering memory against the repository state before this cycle.
 - `4ef68349aea9ed9b0ffce966d25adad8b62015b9`: replaced exaggerated service/technology claims and invented work examples with factual capability and selected-project content.
 - `2ac59936773cf2555951d43c873dd897df518e97`: simplified `compat.css`, removing obsolete colour-feature diagnostics while retaining progressive fallbacks.
-- `2169130122e2dac5a8fe3f1c57f77dff8`: added a numeric `scrollTo` fallback when object-form smooth scrolling is unavailable.
+- `2169130122e2dac5a8fe2cc1f0a4f8a3f4d7d573`: added a numeric `scrollTo` fallback when object-form smooth scrolling is unavailable.
 - `fbbe555c1e94c24597310dfe1cc57750e79bf02b`: aligned README with the current factual positioning and verification limits.
 - `1795b57923c6934eed9dd5fa4959601863caedef`: fixed contact and footer semantic styling hooks so existing component CSS applies to the current HTML structure.
 - `a5ea77ee1ee15e7c410942ae4db5980a86438bb2`: changed the theme persistence key from brand-specific `leano-theme` to reusable `site-theme`.
@@ -115,7 +115,7 @@ Confirmed from current repository:
 - Current `index.html` uses the existing `.details` / `.detail` contact styling hooks and semantic footer headings/lists.
 - Current `app.js` uses the generic `site-theme` storage key and passes Node.js syntax checking in the available environment.
 - `compat.css` contains no OKLCH/color-mix diagnostics and retains progressive fallbacks.
-- Repository HEAD after this cycle is `a5ea77ee1ee15e7c410942ae4db5980a86438bb2`.
+- Repository HEAD after this memory update is `bb50268cb8b0cbee06a8a450eec87debcdff1447`.
 
 Local verification performed during this cycle:
 - `node --check` on the current JavaScript logic: PASS.
@@ -133,7 +133,8 @@ Build a reliable browser smoke-test path for the current repository and verify m
 
 ## RELEASE HISTORY
 
-- `a5ea77ee1ee15e7c410942ae4db5980a86438bb2` — 2026-09-07 — semantic styling-hook fixes and generic theme storage key — Overall 82/100 — Node syntax verified; browser runtime remains unknown.
-- `1795b57923c6934eed9dd5fa4959601863caedef` — 2026-09-07 — contact/footer styling-hook correction — static review; superseded by subsequent memory update.
+- `bb50268cb8b0cbee06a8a450eec87debcdff1447` — 2026-09-07 — corrected memory references and recorded the completed WORK cycle — Overall 82/100 — Node syntax verified; browser runtime remains unknown.
+- `a5ea77ee1ee15e7c410942ae4db5980a86438bb2` — 2026-09-07 — generic theme storage key — static verification; browser runtime remains unknown.
+- `1795b57923c6934eed9dd5fa4959601863caedef` — 2026-09-07 — contact/footer styling-hook correction — static review.
 - `fbbe555c1e94c24597310dfe1cc57750e79bf02b` — 2026-09-07 — factual service/project positioning, compatibility hardening, README alignment — Overall 81/100 — static verification passed; real browser matrix still unknown.
 - `595fb5f9d9f7714d3b08af2471fd1474df0b96365` — 2026-09-07 — engineering memory finalized against prior repository state — Overall 79/100.
