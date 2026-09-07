@@ -2,28 +2,16 @@
    Progressive enhancement only. Core layout and colours use broadly supported CSS;
    this file provides safe fallbacks for optional visual features. */
 
-/* Older browsers do not understand dynamic viewport units. */
 @supports not (height: 100dvh) {
-  body {
-    min-height: 100vh;
-  }
+  body { min-height: 100vh; }
 }
 
-/* Sticky positioning is progressive. Keep the header usable if unsupported. */
 @supports not (position: sticky) {
-  .header {
-    position: relative;
-  }
+  .header { position: relative; }
 }
 
-/* Backdrop blur is decorative, never structural. */
-.header {
-  background: rgba(247, 246, 250, 0.96);
-}
-
-[data-theme='dark'] .header {
-  background: rgba(16, 15, 26, 0.96);
-}
+.header { background: rgba(247, 246, 250, 0.96); }
+[data-theme='dark'] .header { background: rgba(16, 15, 26, 0.96); }
 
 @supports (backdrop-filter: blur(1px)) {
   .header {
@@ -31,16 +19,10 @@
     -webkit-backdrop-filter: blur(14px) saturate(140%);
     backdrop-filter: blur(14px) saturate(140%);
   }
-
-  [data-theme='dark'] .header {
-    background: rgba(16, 15, 26, 0.82);
-  }
+  [data-theme='dark'] .header { background: rgba(16, 15, 26, 0.82); }
 }
 
-.btn--onDark {
-  background: rgba(255, 255, 255, 0.08);
-}
-
+.btn--onDark { background: rgba(255, 255, 255, 0.08); }
 @supports (backdrop-filter: blur(1px)) {
   .btn--onDark {
     -webkit-backdrop-filter: blur(6px);
@@ -48,91 +30,51 @@
   }
 }
 
-/* Masking is decorative. Prefer the unmasked grid whenever the standard
-   property is unavailable, including engines with only a WebKit prefix. */
 @supports not (mask-image: linear-gradient(black, transparent)) {
-  .hero__grid {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
+  .hero__grid { -webkit-mask-image: none; mask-image: none; }
 }
 
 @supports (mask-image: linear-gradient(black, transparent)) {
-  .hero__grid {
-    mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
-  }
+  .hero__grid { mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%); }
 }
 
 @supports (-webkit-mask-image: linear-gradient(black, transparent)) and (not (mask-image: linear-gradient(black, transparent))) {
-  .hero__grid {
-    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
-  }
+  .hero__grid { -webkit-mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%); }
 }
 
-/* Touch hints are optional. Engines without touch-action support simply use
-   their normal pointer/touch behaviour. */
 @supports (touch-action: manipulation) {
-  a,
-  button,
-  select,
-  summary {
-    touch-action: manipulation;
-  }
+  a, button, select, summary { touch-action: manipulation; }
 }
 
 @supports (-webkit-tap-highlight-color: transparent) {
-  a,
-  button,
-  select,
-  summary {
-    -webkit-tap-highlight-color: transparent;
-  }
+  a, button, select, summary { -webkit-tap-highlight-color: transparent; }
 }
 
-/* Preserve visible focus when forced-colour modes override author colours. */
 @media (forced-colors: active) {
-  :focus-visible {
-    outline: 2px solid CanvasText;
-    outline-offset: 3px;
-  }
-
-  .btn,
-  .icon-btn {
-    border: 1px solid ButtonText;
-  }
-
-  .btn--primary,
-  .btn--ghost,
-  .btn--onDark {
-    forced-color-adjust: none;
-  }
+  :focus-visible { outline: 2px solid CanvasText; outline-offset: 3px; }
+  .btn, .icon-btn { border: 1px solid ButtonText; }
+  .btn--primary, .btn--ghost, .btn--onDark { forced-color-adjust: none; }
 }
 
-/* Keep the collapsed mobile navigation out of the focus order visually and
-   in combination with the JavaScript tabindex handling. */
-.drawer[data-open='false'] {
-  visibility: hidden;
-}
+.drawer[data-open='false'] { visibility: hidden; }
+.drawer[data-open='true'] { visibility: visible; }
 
-.drawer[data-open='true'] {
-  visibility: visible;
-}
+/* Prevent the page behind the mobile drawer from scrolling. */
+body.drawer-open { overflow: hidden; }
 
-/* Very narrow screens: prevent decorative horizontal transforms from becoming
-   a source of accidental page overflow. */
+/* Keep anchor targets clear of the sticky header. */
+:where(section[id], main[id], footer[id]) { scroll-margin-top: 88px; }
+
 @media (max-width: 359px) {
-  .shell {
-    padding-inline: var(--space-4);
-  }
-
-  .hero__actions .btn {
-    width: 100%;
-  }
+  .shell { padding-inline: var(--space-4); }
+  .hero__actions .btn { width: 100%; }
 }
 
-/* If smooth scrolling is unavailable, native anchor navigation still works. */
 @supports not (scroll-behavior: smooth) {
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
+}
+
+@media print {
+  body.drawer-open { overflow: visible; }
+  .header, .drawer, .hero__bg, .hero__grid, .strip { display: none !important; }
 }

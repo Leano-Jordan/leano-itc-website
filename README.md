@@ -9,12 +9,14 @@ Static single-page site with no build step required.
 - `index.html` — page markup, SEO metadata, JSON-LD `ProfessionalService` schema and inline SVG branding
 - `base.css` — reset and base element styles
 - `style.css` — design tokens, light/dark palettes, layout and components
-- `compat.css` — progressive browser-compatibility fallbacks
-- `app.js` — theme toggle, mobile drawer, scroll reveal, enquiry form and compatibility-safe scrolling
+- `compat.css` — progressive browser-compatibility fallbacks, drawer/anchor/print safeguards
+- `app.js` — theme toggle, mobile drawer, focus management, scroll reveal, enquiry form and compatibility-safe scrolling
 - `assets/` — local imagery
 - `robots.txt` / `sitemap.xml` — basic crawl guidance for the current production URL
 - `THIRD_PARTY_LICENSES.md` — current third-party resource and licensing due-diligence record
 - `CUSTOMIZATION.md` — hand-off and template customization guide
+- `SECURITY.md` — static security boundary and deployment security notes
+- `404.html` — lightweight noindex fallback page
 - `MEMORY.md` — evolving engineering memory and release scorecard
 
 ## Current positioning
@@ -34,20 +36,16 @@ Selected projects are presented as development projects, not fabricated client c
 
 ## Running locally
 
-Because the site has no build system, it can be served from any static HTTP server. For example:
-
-```bash
-npx serve .
-```
-
-Then open the local URL reported by the server.
+Because the site has no build system, it can be served from any static HTTP server.
 
 ## Verification notes
 
-- JavaScript syntax is checked with Node.js `--check` when the local verification environment is available.
-- Compatibility CSS is designed around progressive enhancement and broadly supported fallbacks.
-- The mobile drawer returns keyboard focus to its menu trigger when a navigation item closes the drawer.
-- Real Chrome/Edge/Firefox/Safari runtime testing remains environment-dependent and must be completed on actual browser installations before release.
+- JavaScript is written defensively around optional browser APIs and storage.
+- Compatibility CSS uses progressive enhancement and broadly supported fallbacks.
+- The mobile drawer now manages focus, closes on Escape/outside click, locks background scrolling and closes when the viewport returns to desktop width.
+- Form status changes are exposed through an ARIA live region when the existing status element is present.
+- A graceful message is shown if the visitor's email client does not open after the `mailto:` action.
+- Real Chrome/Edge/Firefox/Safari/Samsung Internet/mobile runtime testing remains environment-dependent and is not claimed as verified.
 
 ## Commercial/template notes
 
@@ -55,4 +53,4 @@ The repository is still a branded Leano ITC implementation, not a neutral templa
 
 Before commercial redistribution, review and document the provenance/licensing of the local imagery and hosted fonts, separate business configuration from reusable implementation where justified, and replace Leano-specific identity/content with configurable values.
 
-See `CUSTOMIZATION.md` for the current hand-off map and `THIRD_PARTY_LICENSES.md` for licensing items that still require verification.
+See `CUSTOMIZATION.md` for the current hand-off map, `THIRD_PARTY_LICENSES.md` for licensing items that still require verification, and `SECURITY.md` for the deployment security boundary.

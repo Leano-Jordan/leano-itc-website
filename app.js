@@ -12,16 +12,16 @@
   const raf = typeof window.requestAnimationFrame === 'function'
     ? window.requestAnimationFrame.bind(window)
     : function (callback) { return window.setTimeout(callback, 16); };
+  const caf = typeof window.cancelAnimationFrame === 'function'
+    ? window.cancelAnimationFrame.bind(window)
+    : function (id) { window.clearTimeout(id); };
   const getScrollY = function () {
     return typeof window.scrollY === 'number' ? window.scrollY : window.pageYOffset || 0;
   };
 
   /* ---------- Theme toggle ---------- */
-  const sun =
-    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
-  const moon =
-    '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-
+  const sun = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const moon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   const toggle = document.querySelector('[data-theme-toggle]');
 
   function getStoredTheme() {
@@ -37,7 +37,7 @@
     try {
       window.localStorage.setItem('site-theme', value);
     } catch (error) {
-      // Storage may be disabled or unavailable in private/restricted contexts.
+      /* Storage can be disabled in restricted/private contexts. */
     }
   }
 
@@ -48,10 +48,9 @@
     root.setAttribute('data-theme', mode);
     if (!toggle) return;
     toggle.innerHTML = mode === 'dark' ? sun : moon;
-    toggle.setAttribute(
-      'aria-label',
-      'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode'
-    );
+    toggle.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
+    toggle.setAttribute('aria-pressed', String(mode === 'dark'));
+    toggle.title = mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
   }
 
   paint();
@@ -64,7 +63,6 @@
     });
   }
 
-  /* Follow OS theme changes only until the visitor chooses a preference. */
   if (!storedTheme && mediaQuery) {
     const onSystemThemeChange = function (event) {
       mode = event.matches ? 'dark' : 'light';
@@ -80,13 +78,12 @@
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('site-header');
   let scrollTicking = false;
+  let scrollFrame = 0;
   const onScroll = function () {
     if (scrollTicking) return;
     scrollTicking = true;
-    raf(function () {
-      if (header) {
-        header.classList.toggle('header--scrolled', getScrollY() > 8);
-      }
+    scrollFrame = raf(function () {
+      if (header) header.classList.toggle('header--scrolled', getScrollY() > 8);
       scrollTicking = false;
     });
   };
@@ -99,16 +96,21 @@
 
   if (menuBtn && drawer) {
     const drawerLinks = drawer.querySelectorAll('a');
+    let lastFocused = menuBtn;
 
     const setOpen = function (open) {
       drawer.setAttribute('data-open', String(open));
       drawer.setAttribute('aria-hidden', String(!open));
       menuBtn.setAttribute('aria-expanded', String(open));
       menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      drawerLinks.forEach(function (link) { link.tabIndex = open ? 0 : -1; });
+      document.body.classList.toggle('drawer-open', open);
+      if (open) lastFocused = document.activeElement || menuBtn;
+    };
 
-      drawerLinks.forEach(function (link) {
-        link.tabIndex = open ? 0 : -1;
-      });
+    const closeDrawer = function (restoreFocus) {
+      setOpen(false);
+      if (restoreFocus && lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
     };
 
     setOpen(false);
@@ -119,6 +121,8 @@
       if (open) {
         const firstLink = drawer.querySelector('a');
         if (firstLink) firstLink.focus();
+      } else {
+        menuBtn.focus();
       }
     });
 
@@ -126,12 +130,8 @@
       const top = target.getBoundingClientRect().top + getScrollY() - 80;
       const safeTop = Math.max(0, top);
       const smooth = !(reducedMotionQuery && reducedMotionQuery.matches);
-
       try {
-        window.scrollTo({
-          top: safeTop,
-          behavior: smooth ? 'smooth' : 'auto',
-        });
+        window.scrollTo({ top: safeTop, behavior: smooth ? 'smooth' : 'auto' });
       } catch (error) {
         window.scrollTo(0, safeTop);
       }
@@ -140,89 +140,95 @@
     drawerLinks.forEach(function (link) {
       link.addEventListener('click', function (event) {
         const href = link.getAttribute('href') || '';
-        setOpen(false);
-        menuBtn.focus();
-
+        closeDrawer(false);
         if (href.charAt(0) !== '#') return;
         event.preventDefault();
-
         const target = document.getElementById(href.slice(1));
         if (!target) return;
-
-        raf(function () {
-          scrollToTarget(target);
-        });
+        history.replaceState(null, '', href);
+        raf(function () { scrollToTarget(target); });
+        menuBtn.focus();
       });
     });
 
+    document.addEventListener('click', function (event) {
+      if (drawer.getAttribute('data-open') !== 'true') return;
+      if (drawer.contains(event.target) || menuBtn.contains(event.target)) return;
+      closeDrawer(false);
+    });
+
     window.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape' && drawer.getAttribute('data-open') === 'true') {
-        setOpen(false);
-        menuBtn.focus();
+      if (drawer.getAttribute('data-open') !== 'true') return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeDrawer(true);
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = Array.prototype.slice.call(drawer.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
       }
     });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 900 && drawer.getAttribute('data-open') === 'true') closeDrawer(false);
+    }, { passive: true });
   }
 
   /* ---------- Scroll reveal ---------- */
   const items = document.querySelectorAll('[data-reveal]');
-  const canReveal =
-    !(reducedMotionQuery && reducedMotionQuery.matches) &&
-    'IntersectionObserver' in window;
-
+  const canReveal = !(reducedMotionQuery && reducedMotionQuery.matches) && 'IntersectionObserver' in window;
   if (canReveal) {
-    const io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry, index) {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          const delay = Math.min(index * 70, 280);
-          window.setTimeout(function () {
-            el.classList.add('is-in');
-          }, delay);
-          io.unobserve(el);
-        });
-      },
-      { rootMargin: '0px 0px -12% 0px', threshold: 0.1 }
-    );
-
-    items.forEach(function (el) {
-      io.observe(el);
-    });
-
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry, index) {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const delay = Math.min(index * 70, 280);
+        const timer = window.setTimeout(function () { el.classList.add('is-in'); }, delay);
+        el.dataset.revealTimer = String(timer);
+        io.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.1 });
+    items.forEach(function (el) { io.observe(el); });
     window.addEventListener('pagehide', function () {
       io.disconnect();
+      items.forEach(function (el) {
+        if (el.dataset.revealTimer) window.clearTimeout(Number(el.dataset.revealTimer));
+      });
+      if (scrollFrame) caf(scrollFrame);
     }, { once: true });
   } else {
-    items.forEach(function (el) {
-      el.classList.add('is-in');
-    });
+    items.forEach(function (el) { el.classList.add('is-in'); });
   }
 
   /* ---------- Enquiry form → pre-filled email ---------- */
   const form = document.getElementById('enquiry');
   const status = document.getElementById('form-status');
+  if (status) status.setAttribute('aria-live', 'polite');
 
   if (form) {
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
       }
-
       const data = new FormData(form);
       const name = (data.get('name') || '').toString().trim();
       const email = (data.get('email') || '').toString().trim();
       const message = (data.get('message') || '').toString().trim();
-
       if (!name || !email || !message) {
-        if (status) {
-          status.textContent = 'Please add your name, email and a short description.';
-        }
+        if (status) status.textContent = 'Please add your name, email and a short description.';
         return;
       }
-
       const body = [
         'Name: ' + name,
         'Company: ' + ((data.get('company') || '').toString().trim() || '—'),
@@ -231,14 +237,11 @@
         '',
         message,
       ].join('\n');
-
-      const href =
-        'mailto:maluleka.isaacjr@gmail.com?subject=' +
-        encodeURIComponent('Project enquiry — ' + name) +
-        '&body=' +
-        encodeURIComponent(body);
-
+      const href = 'mailto:maluleka.isaacjr@gmail.com?subject=' + encodeURIComponent('Project enquiry — ' + name) + '&body=' + encodeURIComponent(body);
       if (status) status.textContent = 'Opening your email client…';
+      window.setTimeout(function () {
+        if (document.visibilityState === 'visible' && status) status.textContent = 'If your email app did not open, please email maluleka.isaacjr@gmail.com directly.';
+      }, 1800);
       window.location.href = href;
     });
   }
