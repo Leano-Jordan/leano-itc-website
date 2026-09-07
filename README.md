@@ -4,20 +4,25 @@ Marketing and service website for **Leano ITC**, a Pretoria-based software devel
 
 ## Stack
 
-Static single-page site with no build step required.
+Static single-page site with no build step, package manager, framework, CDN or runtime library dependency.
 
 - `index.html` — page markup, SEO metadata, JSON-LD `ProfessionalService` schema and inline SVG branding
 - `base.css` — reset and base element styles
 - `style.css` — design tokens, light/dark palettes, layout and components
-- `compat.css` — progressive browser-compatibility fallbacks, drawer/anchor/print safeguards
+- `compat.css` — progressive browser-compatibility fallbacks and imports the quality safeguards
+- `quality.css` — dependency-free typography references and release-quality CSS safeguards
 - `app.js` — theme toggle, mobile drawer, focus management, scroll reveal, enquiry form and compatibility-safe scrolling
 - `assets/` — local imagery
 - `robots.txt` / `sitemap.xml` — basic crawl guidance for the current production URL
-- `THIRD_PARTY_LICENSES.md` — current third-party resource and licensing due-diligence record
+- `THIRD_PARTY_LICENSES.md` — third-party resource and licensing due-diligence record
 - `CUSTOMIZATION.md` — hand-off and template customization guide
 - `SECURITY.md` — static security boundary and deployment security notes
 - `404.html` — lightweight noindex fallback page
 - `MEMORY.md` — evolving engineering memory and release scorecard
+
+## Typography / dependency policy
+
+The site no longer loads fonts from Fontshare or Google Fonts. CSS references the open-source Noto Sans family when available on the host, with system fallbacks. Noto fonts are published under the SIL Open Font License (OFL) v1.1. No font binaries are currently bundled, so the repository has no font network dependency.
 
 ## Current positioning
 
@@ -42,15 +47,15 @@ Because the site has no build system, it can be served from any static HTTP serv
 
 - JavaScript is written defensively around optional browser APIs and storage.
 - Compatibility CSS uses progressive enhancement and broadly supported fallbacks.
-- The mobile drawer now manages focus, closes on Escape/outside click, locks background scrolling and closes when the viewport returns to desktop width.
-- Form status changes are exposed through an ARIA live region when the existing status element is present.
-- A graceful message is shown if the visitor's email client does not open after the `mailto:` action.
+- The mobile drawer manages focus, closes on Escape/outside click, locks background scrolling and closes when the viewport returns to desktop width.
+- Form validation exposes invalid fields through `aria-invalid` and form status through an ARIA live region.
+- The enquiry action prevents duplicate submissions while the mail client is being opened.
 - Real Chrome/Edge/Firefox/Safari/Samsung Internet/mobile runtime testing remains environment-dependent and is not claimed as verified.
 
 ## Commercial/template notes
 
 The repository is still a branded Leano ITC implementation, not a neutral template distribution.
 
-Before commercial redistribution, review and document the provenance/licensing of the local imagery and hosted fonts, separate business configuration from reusable implementation where justified, and replace Leano-specific identity/content with configurable values.
+Before commercial redistribution, establish provenance/licensing for the local imagery, replace Leano-specific identity/content, and separate business configuration from reusable implementation where justified. Noto licensing is documented in `THIRD_PARTY_LICENSES.md`; local image rights remain unresolved.
 
-See `CUSTOMIZATION.md` for the current hand-off map, `THIRD_PARTY_LICENSES.md` for licensing items that still require verification, and `SECURITY.md` for the deployment security boundary.
+See `CUSTOMIZATION.md` for the current hand-off map, `THIRD_PARTY_LICENSES.md` for licensing status, and `SECURITY.md` for the deployment security boundary.
