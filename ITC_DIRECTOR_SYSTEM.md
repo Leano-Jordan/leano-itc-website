@@ -465,3 +465,18 @@ Before calling a new site “built”, the director must be able to answer YES t
 - Would a commercial client see a credible product before any polish pass?
 
 If several answers are NO, continue building rather than handing over a weak foundation.
+
+
+## Rosscore Design DNA / Anti-Slop Upgrade — 2026-10-08
+
+Company standard: `Leano-Jordan/Rosscore-Labs/docs/ROSCOR_WEB_PRODUCT_DESIGN_STANDARD.md`.
+
+ITC must apply the standard as a design-system generator, not as a visual template. **Rosscore standardizes quality, not appearance.**
+
+Before a new site or major redesign, establish project-specific Design DNA covering brand personality, customer psychology, market position, competitive visual environment, visual language, layout rhythm, hero/composition strategy, CTA language, typography, shape language, colour behaviour, imagery, interaction/motion and trust presentation.
+
+Reuse engineering and product disciplines; do not automatically reuse visual styling from another Rosscore site. A successful previous site is a source of learned discipline, not a house-style template.
+
+Before acceptance, run the Anti-Slop Check: compare the composition against Design DNA, the real customer journey, relevant competitors and recent Rosscore work. If it looks like a generic AI-generated site or an obvious Rosscore clone, mutate the composition before polishing unless repetition is demonstrably the strongest product solution.
+
+For major visual work, consider 2–3 materially different directions and select using business outcome, audience fit, evidence, accessibility, performance and maintainability.
