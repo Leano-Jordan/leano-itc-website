@@ -25,7 +25,7 @@ The owner reports no other human code/design/content contributors and no known c
 ## Commercialization boundary
 The intended commercial asset is the creator's original implementation, design system, documentation, reusable architecture and original content, after third-party assets and uncertain provenance are removed or cleared.
 
-The current implementation has removed the previously unresolved JPEG imagery and the AI-generated demonstration logo. Remaining separation work concerns Leano-specific identity/content/metadata and final review of AI-assisted source provenance.
+The current implementation has removed the previously unresolved JPEG imagery and the AI-generated demonstration logo. Remaining work concerns final review of Rosscore Labs identity/content/metadata and AI-assisted source provenance.
 
 ## Evidence to retain
 Recommended evidence includes Git commit history, dated working files, development notes, AI-assisted development records, source/provenance records for any future third-party assets, and applicable agreements or registrations.
