@@ -99,7 +99,7 @@ figcaption {
 
 ::selection {
   background: rgba(169, 181, 138, 0.28);
-  color: var(--color-text);
+  color: var(--ink, #1b2023);
 }
 
 :focus-visible {
@@ -145,7 +145,7 @@ input,
 textarea,
 select {
   transition:
-    color var(--transition-interactive),
+    color .18s ease,
     background var(--transition-interactive),
     border-color var(--transition-interactive),
     box-shadow var(--transition-interactive),
