@@ -1,71 +1,35 @@
-@import url("./quality.css");
-
-/* Browser compatibility layer.
-   Progressive enhancement only. Core layout and colours use broadly supported CSS;
-   this file provides safe fallbacks for optional visual features. */
-
+/* Compatibility layer: progressive enhancement only. Core visuals remain dependency-free. */
 @supports not (height: 100dvh) {
   body { min-height: 100vh; }
 }
-
 @supports not (position: sticky) {
   .header { position: relative; }
 }
-
-.header { background: rgba(247, 246, 250, 0.96); }
-[data-theme='dark'] .header { background: rgba(16, 15, 26, 0.96); }
-
-@supports (backdrop-filter: blur(1px)) {
-  .header {
-    background: rgba(247, 246, 250, 0.82);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    backdrop-filter: blur(14px) saturate(140%);
-  }
-  [data-theme='dark'] .header { background: rgba(16, 15, 26, 0.82); }
+@supports not (backdrop-filter: blur(1px)) {
+  .header { background: var(--paper); }
 }
-
-.btn--onDark { background: rgba(255, 255, 255, 0.08); }
-@supports (backdrop-filter: blur(1px)) {
-  .btn--onDark {
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
-  }
-}
-
 @supports not (mask-image: linear-gradient(black, transparent)) {
   .hero__grid { -webkit-mask-image: none; mask-image: none; }
 }
 @supports (mask-image: linear-gradient(black, transparent)) {
-  .hero__grid { mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%); }
+  .hero__grid { -webkit-mask-image: linear-gradient(to right, #000 0%, transparent 82%); mask-image: linear-gradient(to right, #000 0%, transparent 82%); }
 }
-@supports (-webkit-mask-image: linear-gradient(black, transparent)) and (not (mask-image: linear-gradient(black, transparent))) {
-  .hero__grid {
-    -webkit-mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
-    mask-image: radial-gradient(ellipse 90% 70% at 20% 30%, #000 20%, transparent 75%);
-  }
-}
-
 @supports (touch-action: manipulation) {
   a, button, select, summary { touch-action: manipulation; }
 }
 @supports (-webkit-tap-highlight-color: transparent) {
   a, button, select, summary { -webkit-tap-highlight-color: transparent; }
 }
-
 @media (forced-colors: active) {
   :focus-visible { outline: 2px solid CanvasText; outline-offset: 3px; }
-  .btn, .icon-btn { border: 1px solid ButtonText; }
-  .btn--primary, .btn--ghost, .btn--onDark { forced-color-adjust: none; }
+  .btn, .icon-btn, .card, .work-item, .field input, .field select, .field textarea { border: 1px solid ButtonText; }
 }
-
 .drawer[data-open='false'] { visibility: hidden; }
 .drawer[data-open='true'] { visibility: visible; }
-
 @media (max-width: 359px) {
-  .shell { padding-inline: var(--space-4); }
+  .shell { width: min(var(--shell), calc(100% - 2rem)); }
   .hero__actions .btn { width: 100%; }
 }
-
 @supports not (scroll-behavior: smooth) {
   html { scroll-behavior: auto; }
 }
