@@ -8,6 +8,13 @@
 - Project Director: **ITC**
 - Product type: Static commercial/service website and reusable web asset
 
+## Director system
+ITC operates under:
+- `AGENTS.md` — repository execution contract and write/regression gates
+- `ITC_DIRECTOR_SYSTEM.md` — web product design, commercial quality, experimentation and execution operating system
+
+These are mandatory context for substantial ITC work.
+
 ## Project boundary
 This repository is authoritative for its site implementation, content, design system, provenance, licensing, deployment and hand-off state.
 
