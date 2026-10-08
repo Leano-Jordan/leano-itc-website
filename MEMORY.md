@@ -110,8 +110,8 @@ LEGAL/LICENCE BLOCKERS: 0 current-asset blockers
 
 Unknown is not zero.
 
-## Last Verified Commit
-151ca61e6e7de15146dbe8dd29ddfeec1e6eaae9 — interaction accessibility safeguards and UI hardening. Runtime verification remains outstanding.
+## Last Reviewed Commit
+72d67126e935a33bd317ba7f7cf797c4881453a0 — Rosscore Labs visual consolidation pass: muted accent relationships, reduced visual noise, contact-section de-emphasis, legacy token cleanup and responsive drawer breakpoint alignment. Runtime verification remains outstanding.
 
 ## Last Improvement Round
-2026-10-08: Jodie Rosscore Labs visual consolidation and rebrand round — audited current HEAD, fixed missing quality-layer loading, strengthened interaction sizing, improved mobile composition, added browser theme metadata and re-checked product/design-system constraints.
+2026-10-08: Jodie Rosscore Labs visual consolidation pass — consolidated the palette and hierarchy, removed legacy bright-accent remnants, softened hero graphics, reduced the signal strip/contact colour dominance, corrected base-token drift, aligned the mobile drawer breakpoint with CSS, and removed malformed placeholder SEO URLs. Runtime browser/device verification remains outstanding.
