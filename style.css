@@ -84,11 +84,10 @@ button, input, select, textarea { font: inherit; }
 .nav a:hover, .nav a:focus-visible { color: var(--ink); }
 .header__actions { display: flex; align-items: center; gap: .55rem; }
 .icon-btn {
-  display: grid; place-items: center; width: 40px; height: 40px;
+  display: grid; place-items: center; width: 44px; height: 44px;
   border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer;
 }
 .icon-btn:hover { border-color: var(--ink); }
-[data-theme-toggle]::before { content: "◐"; font-size: 1.1rem; }
 .menu-btn { display: none; }
 .drawer { display: none; border-top: 1px solid var(--line); }
 .drawer__inner { display: grid; gap: .85rem; padding-block: 1.25rem 1.5rem; }
@@ -96,7 +95,7 @@ button, input, select, textarea { font: inherit; }
 
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .7rem;
-  min-height: 46px; padding: .75rem 1.1rem; border: 1px solid transparent;
+  min-height: 48px; padding: .75rem 1.1rem; border: 1px solid transparent;
   border-radius: var(--radius); text-decoration: none; font-size: .78rem; font-weight: 850;
   letter-spacing: .05em; text-transform: uppercase; cursor: pointer; transition: transform .18s ease, background-color .18s ease, border-color .18s ease;
 }
@@ -281,7 +280,7 @@ button, input, select, textarea { font: inherit; }
   .hero__inner { padding-block: 5rem 4rem; }
   .hero h1 { font-size: clamp(3.15rem, 15vw, 6rem); }
   .hero__visual { opacity: .75; }
-  .hero__terminal { width: 500px; right: -260px; top: 35%; }
+  .hero__terminal { display: none; }
   .hero__meta { grid-template-columns: 1fr; }
   .hero__meta div, .hero__meta div + div { padding: .8rem 0; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.16); }
   .hero__meta div:last-child { border-bottom: 0; }
