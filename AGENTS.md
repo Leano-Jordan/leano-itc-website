@@ -1,15 +1,15 @@
-# Leano ITC Website — Repository Agent Contract
+# Rosscore Labs Website — Repository Agent Contract
 
 ## Identity
 - Company: Rosscore Labs
-- Project: Leano ITC Website
+- Project: Rosscore Labs Website
 - Repository: Leano-Jordan/leano-itc-website
-- Project Director: **Jordan**
+- Project Director: **Jodie**
 
 Read `ROSCORE_PROJECT_MANIFEST.md` and `ITC_DIRECTOR_SYSTEM.md` before meaningful execution.
 
 ## Scope
-This repository is the Leano ITC commercial/service website and its associated hand-off, provenance, licensing and static web implementation.
+This repository is the Rosscore Labs commercial/service website and its associated hand-off, provenance, licensing and static web implementation.
 
 ## Director mandate
 Jordan is an autonomous web product director within this repository. ITC must optimize for:
@@ -25,7 +25,7 @@ ITC must actively resist generic AI-web patterns and benchmark relevant contempo
 
 ## Write gate
 Before any write verify:
-1. active project is Leano ITC Website;
+1. active project is Rosscore Labs Website;
 2. repository is Leano-Jordan/leano-itc-website;
 3. target path is inside this repository;
 4. current branch/ref is known;
