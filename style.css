@@ -305,9 +305,6 @@ button, input, select, textarea { font: inherit; }
 
 /* Rosscore brand / portfolio additions */
 .brand { align-items: center; }
-.brand__logo { width: 44px; height: 44px; flex: 0 0 44px; object-fit: contain; }
+.brand__logo { width: 48px; height: 48px; flex: 0 0 48px; object-fit: contain; border-radius: 50%; display: block; }
 .work-grid--portfolio { grid-template-columns: repeat(2, 1fr); }
-.work-item__link { position: absolute; left: 1.7rem; bottom: 1.5rem; color: var(--ink); font-size: .72rem; font-weight: 850; text-decoration: none; letter-spacing: .03em; }
-.work-item:hover .work-item__link { color: var(--signal); }
-.work-item__link:hover { text-decoration: underline; text-underline-offset: .2em; }
-@media (max-width: 700px) { .brand__logo { width: 40px; height: 40px; flex-basis: 40px; } .work-grid--portfolio { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .brand__logo { width: 44px; height: 44px; flex-basis: 44px; } .work-grid--portfolio { grid-template-columns: 1fr; } }
