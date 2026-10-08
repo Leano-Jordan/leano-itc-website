@@ -221,12 +221,12 @@
         '',
         message,
       ].join('\n');
-      const href = 'mailto:maluleka.isaacjr@gmail.com?subject=' + encodeURIComponent('Project enquiry — ' + name) + '&body=' + encodeURIComponent(body);
+      const href = 'mailto:rosscorelabs@outlook.com?subject=' + encodeURIComponent('Project enquiry — ' + name) + '&body=' + encodeURIComponent(body);
       if (submitButton) { submitButton.disabled = true; submitButton.setAttribute('aria-disabled', 'true'); }
       if (status) status.textContent = 'Opening your email client…';
       window.setTimeout(function () {
         if (!pageExiting && document.visibilityState === 'visible' && status) {
-          status.textContent = 'If your email app did not open, please email maluleka.isaacjr@gmail.com directly.';
+          status.textContent = 'If your email app did not open, please email rosscorelabs@outlook.com directly.';
           if (submitButton) { submitButton.disabled = false; submitButton.removeAttribute('aria-disabled'); }
         }
       }, 1800);
