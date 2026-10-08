@@ -1,10 +1,10 @@
-# Leano ITC Website Security Notes
+# Rosscore Labs Website Security Notes
 
 ## Current posture
 
 This is a static marketing site. The current repository contains no server-side credentials, API keys, authentication system, external runtime scripts, or intentional client-side secret storage based on the current static review.
 
-The enquiry form uses `mailto:` and therefore does not submit form data to a Leano ITC server. It should not be described as a secure server-side contact system.
+The enquiry form uses `mailto:` and therefore does not submit form data to a Rosscore Labs server. It should not be described as a secure server-side contact system.
 
 ## Deployment responsibilities
 
@@ -22,7 +22,7 @@ The current site has no runtime CDN, remote font, image, JavaScript library or i
 
 ## Form boundary
 
-The enquiry form opens the visitor's email client using `mailto:`. It does not transmit form data to a Leano ITC server. A future backend/CRM integration must add server-side validation, rate limiting, abuse protection and appropriate data handling/privacy documentation.
+The enquiry form opens the visitor's email client using `mailto:`. It does not transmit form data to a Rosscore Labs server. A future backend/CRM integration must add server-side validation, rate limiting, abuse protection and appropriate data handling/privacy documentation.
 
 ## Reporting
 
