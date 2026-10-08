@@ -1,7 +1,7 @@
 # IP & Ownership Provenance
 
 ## Purpose
-Operational provenance record for the Leano ITC website/template. This document is a project record, not legal advice.
+Operational provenance record for the Rosscore Labs website/template. This document is a project record, not legal advice.
 
 ## Declared creator / owner position
 - Creator: Isaac Lehlogonolo Junir Maluleka
@@ -11,7 +11,7 @@ Operational provenance record for the Leano ITC website/template. This document 
 - Known contributors: none besides the creator.
 
 ## Business identity
-- Leano ITC name: owner reports that the name is registered.
+- Rosscore Labs name: owner reports that the name is registered.
 - CIPC account access: currently unavailable to the owner, so registration details have not been independently verified in this repository.
 - Domain: no domain ownership is currently recorded as established.
 
@@ -31,7 +31,7 @@ The current implementation has removed the previously unresolved JPEG imagery an
 Recommended evidence includes Git commit history, dated working files, development notes, AI-assisted development records, source/provenance records for any future third-party assets, and applicable agreements or registrations.
 
 ## Owner verification required
-- Independently verify the Leano ITC CIPC registration and current registrant details.
+- Independently verify the Rosscore Labs CIPC registration and current registrant details.
 - Establish or verify domain ownership before treating the domain as a business asset.
 - Complete AI-assisted source/provenance review before commercial template release.
 
