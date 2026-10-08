@@ -1,6 +1,6 @@
-# Leano ITC — Website
+# Rosscore Labs — Website
 
-Marketing and service website for **Leano ITC**, a Pretoria-based software development practice.
+Marketing and service website for **Rosscore Labs**, a Pretoria-based software development practice.
 
 ## Stack
 
@@ -48,7 +48,7 @@ Real Chrome/Edge/Firefox/Safari/Samsung Internet/mobile runtime testing remains 
 
 ## Commercial/template notes
 
-The repository remains a branded Leano ITC implementation. Its reusable engineering foundation is intentionally kept free of external runtime dependencies and unresolved image assets.
+The repository remains a branded Rosscore Labs implementation. Its reusable engineering foundation is intentionally kept free of external runtime dependencies and unresolved image assets.
 
 Before distributing a neutral commercial template, Leano-specific identity, content, contact data, SEO metadata and business claims must still be separated from the reusable engine. AI-assisted source provenance should also receive final review.
 
