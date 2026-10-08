@@ -1,11 +1,11 @@
-# Rosscore Project Manifest — Leano ITC Website
+# Rosscore Project Manifest — Rosscore Labs Website
 
 ## Identity
 - Company: Rosscore Labs
-- Project: Leano ITC Website
+- Project: Rosscore Labs Website
 - Repository: Leano-Jordan/leano-itc-website
 - Canonical branch: main
-- Project Director: **ITC**
+- Project Director: **Jodie**
 - Product type: Static commercial/service website and reusable web asset
 
 ## Director system
