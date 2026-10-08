@@ -9,7 +9,7 @@ Static single-page HTML/CSS/JavaScript with no build step, package manager or ru
 ## Design System
 Editorial/technical visual system built from project-owned CSS:
 - Ink/near-black foundation with off-white surfaces.
-- High-contrast signal-lime action colour.
+- Muted sage/olive accent with a restrained slate-blue secondary accent.
 - Strong typographic scale, asymmetric layouts and technical grid motifs.
 - Square/minimal geometry rather than generic rounded SaaS cards.
 - Dark/light theme retained.
@@ -114,4 +114,4 @@ Unknown is not zero.
 151ca61e6e7de15146dbe8dd29ddfeec1e6eaae9 — interaction accessibility safeguards and UI hardening. Runtime verification remains outstanding.
 
 ## Last Improvement Round
-2026-10-08: Jordan commercial UI/UX hardening round — audited current HEAD, fixed missing quality-layer loading, strengthened interaction sizing, improved mobile composition, added browser theme metadata and re-checked product/design-system constraints.
+2026-10-08: Jodie Rosscore Labs visual consolidation and rebrand round — audited current HEAD, fixed missing quality-layer loading, strengthened interaction sizing, improved mobile composition, added browser theme metadata and re-checked product/design-system constraints.
