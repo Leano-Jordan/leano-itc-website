@@ -3,7 +3,7 @@
 ## Identity
 - Company: Rosscore Labs
 - Project: Rosscore Labs Website
-- Repository: Leano-Jordan/leano-itc-website
+- Repository: Rosscore Labs website repository
 - Project Director: **Jodie**
 
 Read `ROSCORE_PROJECT_MANIFEST.md` and `ITC_DIRECTOR_SYSTEM.md` before meaningful execution.
@@ -26,7 +26,7 @@ ITC must actively resist generic AI-web patterns and benchmark relevant contempo
 ## Write gate
 Before any write verify:
 1. active project is Rosscore Labs Website;
-2. repository is Leano-Jordan/leano-itc-website;
+2. repository is Rosscore Labs website repository;
 3. target path is inside this repository;
 4. current branch/ref is known;
 5. current file contents have been inspected;
