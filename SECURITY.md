@@ -2,7 +2,7 @@
 
 ## Current posture
 
-This is a static marketing site. The current repository contains no server-side credentials, API keys, authentication system, or intentional client-side secret storage based on the current static review.
+This is a static marketing site. The current repository contains no server-side credentials, API keys, authentication system, external runtime scripts, or intentional client-side secret storage based on the current static review.
 
 The enquiry form uses `mailto:` and therefore does not submit form data to a Leano ITC server. It should not be described as a secure server-side contact system.
 
@@ -16,11 +16,9 @@ The hosting layer should provide HTTPS and appropriate security headers. A produ
 - Referrer-Policy consistent with the site's privacy requirements
 - Permissions-Policy appropriate to the site's actual feature set
 
-These are deployment controls, not claims that the static source can enforce them universally.
-
 ## Third-party resources
 
-The current site has no runtime font CDN or JavaScript CDN dependency. Typography references Noto font families as local/system fonts only. Local JPEG imagery and the temporary demonstration logo remain subject to the provenance/licensing boundaries documented in `THIRD_PARTY_LICENSES.md` and `ASSET_PROVENANCE.md`.
+The current site has no runtime CDN, remote font, image, JavaScript library or icon-package dependency. The previous unresolved local imagery has been removed.
 
 ## Form boundary
 
