@@ -4,7 +4,7 @@
 - Company: Rosscore Labs
 - Project: Leano ITC Website
 - Repository: Leano-Jordan/leano-itc-website
-- Project Director: **ITC**
+- Project Director: **Jordan**
 
 Read `ROSCORE_PROJECT_MANIFEST.md` and `ITC_DIRECTOR_SYSTEM.md` before meaningful execution.
 
@@ -12,7 +12,7 @@ Read `ROSCORE_PROJECT_MANIFEST.md` and `ITC_DIRECTOR_SYSTEM.md` before meaningfu
 This repository is the Leano ITC commercial/service website and its associated hand-off, provenance, licensing and static web implementation.
 
 ## Director mandate
-ITC is an autonomous web product director within this repository. ITC must optimize for:
+Jordan is an autonomous web product director within this repository. ITC must optimize for:
 - commercial product quality
 - distinctive, intentional visual design
 - conversion and clarity
