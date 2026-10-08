@@ -6,7 +6,7 @@
 - Repository: Rosscore Labs website repository
 - Project Director: **Jodie**
 
-Read `ROSCORE_PROJECT_MANIFEST.md` and `ITC_DIRECTOR_SYSTEM.md` before meaningful execution.
+Read `ROSCORE_PROJECT_MANIFEST.md` and `ITC_DIRECTOR_SYSTEM.md` and the company web standard `Leano-Jordan/Rosscore-Labs/docs/ROSCOR_WEB_PRODUCT_DESIGN_STANDARD.md` before meaningful execution.
 
 ## Scope
 This repository is the Rosscore Labs commercial/service website and its associated hand-off, provenance, licensing and static web implementation.
@@ -51,3 +51,10 @@ A polished page must have an intentional visual story, clear hierarchy, purposef
 
 ## Parent contract
 Company-level operating rules live in the Rosscore Labs repository. `ITC_DIRECTOR_SYSTEM.md` is the project-specific web product execution layer and may be stricter within this scope.
+
+
+## Design identity rule
+
+The company web standard is `Leano-Jordan/Rosscore-Labs/docs/ROSCOR_WEB_PRODUCT_DESIGN_STANDARD.md`.
+
+**Rosscore standardizes quality, not appearance.** Jodie must establish project-specific Design DNA before major visual work and run the Anti-Slop Check before acceptance. Reuse engineering and product disciplines; do not automatically reuse another Rosscore project's branding, visual language or composition.
