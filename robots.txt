@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://leanoitc.co.za/sitemap.xml
+# Sitemap URL intentionally omitted until the Rosscore Labs production domain is confirmed.
