@@ -1,6 +1,6 @@
 # Website template customization
 
-The current repository is a working Leano ITC site and also serves as the foundation for a reusable static website template.
+The current repository is a working Rosscore Labs site and also serves as the foundation for a reusable static website template.
 
 ## Safe customization points
 
