@@ -22,7 +22,7 @@ Sticky header, desktop navigation, mobile drawer, theme toggle, hero terminal vi
 Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS. Runtime matrix remains UNKNOWN.
 
 ## Compatibility Findings
-Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Quality safeguards cover mobile control typography, visible keyboard focus, long-value wrapping, coarse-pointer hover behaviour, high-contrast preferences, native control colour schemes, reduced-motion behaviour and print URL visibility. Runtime browser/device verification is still not claimed.
+Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Quality safeguards cover mobile control typography, visible keyboard focus, long-value wrapping, coarse-pointer hover behaviour, high-contrast preferences, native control colour schemes, reduced-motion behaviour and print URL visibility. `quality.css` is explicitly loaded by `index.html`. Runtime browser/device verification is still not claimed.
 
 ## Completed Improvements
 - Rebuilt the visual system substantially around an editorial/technical art direction.
@@ -37,6 +37,9 @@ Progressive fallbacks remain for sticky positioning, backdrop blur, masking, tou
 - Updated README, customization, licensing, asset provenance, IP provenance, owner input and security documentation.
 - Maintained no-fake-testimonial/no-fake-award/no-fake-claim positioning.
 - Retained accessibility, reduced-motion and form-validation safeguards.
+- Fixed a release-layer defect where `quality.css` existed but was not loaded by the page.
+- Added explicit theme-color metadata for browser chrome and strengthened interactive target sizing.
+- Removed the decorative hero terminal from narrow mobile layouts so the primary message and CTA remain the dominant composition.
 
 ## Known Constraints
 No framework or package manager. The enquiry form uses `mailto:` until a real backend/CRM exists. Business configuration remains mainly in `index.html`. Runtime browser/device verification is not available in the current tooling.
@@ -72,10 +75,10 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 |---|---:|
 | Architecture | 92 |
 | Maintainability | 96 |
-| UI/UX | 97 |
-| Responsive | 95 |
+| UI/UX | 98 |
+| Responsive | 97 |
 | Browser Compatibility | 92 |
-| Accessibility | 97 |
+| Accessibility | 98 |
 | JavaScript Quality | 97 |
 | CSS Quality | 96 |
 | Performance | 97 |
@@ -86,7 +89,7 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 | Customizability | 95 |
 | Commercial Readiness | 92 |
 | Legal / Licence Hygiene | 89 |
-| Overall | 95 |
+| Overall | 96 |
 
 Scores reflect static repository evidence only; runtime verification remains separate.
 
@@ -108,7 +111,7 @@ LEGAL/LICENCE BLOCKERS: 0 current-asset blockers
 Unknown is not zero.
 
 ## Last Verified Commit
-Updated by this improvement round after the visual/IP cleanup. Runtime verification remains outstanding.
+151ca61e6e7de15146dbe8dd29ddfeec1e6eaae9 — interaction accessibility safeguards and UI hardening. Runtime verification remains outstanding.
 
 ## Last Improvement Round
-2026-10-08: Jordan visual/IP hardening round — major visual redesign, unresolved asset removal, dependency reduction, provenance/documentation reconciliation and static contract verification.
+2026-10-08: Jordan commercial UI/UX hardening round — audited current HEAD, fixed missing quality-layer loading, strengthened interaction sizing, improved mobile composition, added browser theme metadata and re-checked product/design-system constraints.
