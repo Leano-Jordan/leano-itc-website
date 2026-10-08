@@ -50,6 +50,6 @@ Real Chrome/Edge/Firefox/Safari/Samsung Internet/mobile runtime testing remains 
 
 The repository remains a branded Rosscore Labs implementation. Its reusable engineering foundation is intentionally kept free of external runtime dependencies and unresolved image assets.
 
-Before distributing a neutral commercial template, Leano-specific identity, content, contact data, SEO metadata and business claims must still be separated from the reusable engine. AI-assisted source provenance should also receive final review.
+Before distributing a neutral commercial template, Rosscore-specific identity, content, contact data, SEO metadata and business claims must still be separated from the reusable engine. AI-assisted source provenance should also receive final review.
 
 See `CUSTOMIZATION.md`, `THIRD_PARTY_LICENSES.md`, `IP_PROVENANCE.md`, `SECURITY.md` and `OWNER_INPUT.md` for the current boundaries.
