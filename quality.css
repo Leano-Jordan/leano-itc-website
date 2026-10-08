@@ -7,6 +7,12 @@
 button, input, select, textarea { font: inherit; }
 .field input, .field textarea, .field select { font-size: max(1rem, var(--text-sm, .875rem)); }
 :where(a, button, input, select, textarea):focus-visible { outline: 3px solid var(--signal, #d9ff3f); outline-offset: 3px; }
+:where(.icon-btn, .menu-btn, .btn) { min-width: 44px; }
+:where(.nav a, .drawer a, .footer a) { text-underline-offset: .2em; }
+@media (prefers-reduced-motion: no-preference) {
+  :where(.nav a, .drawer a, .footer a, .btn, .icon-btn):focus-visible { transition: none; }
+}
+
 .field input[aria-invalid="true"], .field textarea[aria-invalid="true"], .field select[aria-invalid="true"] {
   border-color: #b42318;
   box-shadow: 0 0 0 3px rgba(180, 35, 24, .12);
