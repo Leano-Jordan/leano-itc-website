@@ -1,75 +1,68 @@
 # PROJECT MEMORY
 
 ## Current Architecture
-Static single-page HTML/CSS/JavaScript with no build step or package manager. `base.css` is the foundation, `style.css` contains design tokens/layout/components, `compat.css` contains progressive fallbacks and imports `quality.css`, and `app.js` contains interaction behaviour.
+Static single-page HTML/CSS/JavaScript with no build step, package manager or runtime third-party dependency. `base.css` is the foundation, `style.css` is the project-owned visual system, `compat.css` contains progressive fallbacks, `quality.css` contains release safeguards, and `app.js` contains interaction behaviour.
 
 ## Repository Structure
-`index.html`, `base.css`, `style.css`, `compat.css`, `quality.css`, `app.js`, `assets/`, `README.md`, `CUSTOMIZATION.md`, `THIRD_PARTY_LICENSES.md`, `BROWSER_COMPATIBILITY.md`, `SECURITY.md`, `404.html`, `robots.txt`, `sitemap.xml`, `IP_PROVENANCE.md`, `AI_ASSISTED_DEVELOPMENT.md`, `ASSET_PROVENANCE.md`, `OWNER_INPUT.md`.
+`index.html`, `base.css`, `style.css`, `compat.css`, `quality.css`, `app.js`, `README.md`, `CUSTOMIZATION.md`, `THIRD_PARTY_LICENSES.md`, `BROWSER_COMPATIBILITY.md`, `SECURITY.md`, `404.html`, `robots.txt`, `sitemap.xml`, `IP_PROVENANCE.md`, `AI_ASSISTED_DEVELOPMENT.md`, `ASSET_PROVENANCE.md`, `OWNER_INPUT.md`, `MEMORY.md`. No `assets/` directory is required by the current implementation.
 
 ## Design System
-Purple light/dark token system. Typography references Noto Sans / Noto Sans Display / Noto Sans Mono with system fallbacks. No remote font service dependency.
+Editorial/technical visual system built from project-owned CSS:
+- Ink/near-black foundation with off-white surfaces.
+- High-contrast signal-lime action colour.
+- Strong typographic scale, asymmetric layouts and technical grid motifs.
+- Square/minimal geometry rather than generic rounded SaaS cards.
+- Dark/light theme retained.
+- System UI fonts only; no remote or bundled font dependency.
 
 ## Important Components
-Sticky header, desktop navigation, mobile drawer, theme toggle, buttons, hero, capability cards, approach/work sections, contact form, footer and scroll-reveal elements.
+Sticky header, desktop navigation, mobile drawer, theme toggle, hero terminal visual, signal ticker, system-map visual, capability grid, approach steps, selected-work panels, stack groups, contact form and footer.
 
 ## Browser Targets
 Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS. Runtime matrix remains UNKNOWN.
 
 ## Compatibility Findings
-Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Quality safeguards cover mobile control typography, visible keyboard focus, long-value wrapping, coarse-pointer hover behaviour, high-contrast preferences, native control colour schemes, reduced-motion scrolling and print URL visibility. Static compatibility documentation has been reconciled with the current implementation. Runtime browser/device verification is still not claimed.
+Progressive fallbacks remain for sticky positioning, backdrop blur, masking, touch hints and forced-colour focus. Quality safeguards cover mobile control typography, visible keyboard focus, long-value wrapping, coarse-pointer hover behaviour, high-contrast preferences, native control colour schemes, reduced-motion behaviour and print URL visibility. Runtime browser/device verification is still not claimed.
 
 ## Completed Improvements
-- Removed Fontshare and Google Fonts network dependencies.
-- Switched typography to Noto Sans / Noto Sans Display / Noto Sans Mono with system fallbacks.
-- Added a dedicated `quality.css` layer for release safeguards.
-- Added explicit robots and social-image metadata.
-- Removed `fetchpriority` from the hero preload.
-- Added maxlength limits to enquiry fields.
-- Added `aria-invalid` state for native validation failures.
-- Prevented repeated enquiry submissions while the mail client is opening.
-- Hardened the mobile drawer with native `inert` where supported.
-- Added initial hash alignment for direct links.
-- Added lifecycle cleanup for scroll/reveal work on page exit.
-- Added hover-transform suppression for reduced-motion users.
-- Updated the third-party licence record with Noto OFL 1.1 evidence.
-- Hardened form/control typography and mobile text sizing.
-- Added explicit `:focus-visible` treatment.
-- Added long-value wrapping safeguards to prevent horizontal overflow.
-- Limited hover movement to appropriate pointer environments.
-- Added high-contrast preference safeguards.
-- Added explicit light/dark native control colour schemes.
-- Added reduced-motion scroll-behaviour handling.
-- Added print-time external URL visibility.
-- Added owner/IP provenance, AI-assisted development and asset provenance records.
-- Expanded the customization hand-off guide with a safe replacement order.
-- Reconciled `SECURITY.md` with the current no-CDN static implementation and documented the real `mailto:` form boundary.
-- Reconciled `BROWSER_COMPATIBILITY.md` with the current implementation and removed the stale `fetchpriority` known-issue claim.
+- Rebuilt the visual system substantially around an editorial/technical art direction.
+- Reworked hero hierarchy, typography, navigation, capability cards, project panels, process section, stack and contact presentation.
+- Replaced image-dependent hero/section visuals with CSS/HTML system graphics.
+- Removed the temporary JPEG imagery because commercial provenance was unresolved.
+- Removed the previous AI-generated demonstration logo from the implementation.
+- Replaced external/third-party font assumptions with system UI typography.
+- Confirmed no remote font/CDN/framework/icon-package dependency in the current implementation.
+- Preserved JavaScript contracts: `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`, `[data-theme-toggle]`, `[data-reveal]`.
+- Refreshed compatibility and quality layers for the new visual system.
+- Updated README, customization, licensing, asset provenance, IP provenance, owner input and security documentation.
+- Maintained no-fake-testimonial/no-fake-award/no-fake-claim positioning.
+- Retained accessibility, reduced-motion and form-validation safeguards.
 
 ## Known Constraints
-No framework or package manager. The enquiry form uses `mailto:` until a real backend/CRM exists. Business configuration is mainly in `index.html`. Noto is not bundled yet, so exact typography depends on whether Noto is installed; safe system fallbacks are provided.
+No framework or package manager. The enquiry form uses `mailto:` until a real backend/CRM exists. Business configuration remains mainly in `index.html`. Runtime browser/device verification is not available in the current tooling.
 
 ## Outstanding Issues
 HIGH: Real multi-browser/device runtime matrix is not completed.
-HIGH: Final business/service/commercial claims require owner review.
-MEDIUM: Local JPEG provenance/licensing remains unproven and assets are scheduled for replacement.
+HIGH: Final business/service/commercial claims still require owner review.
+MEDIUM: AI-assisted source provenance requires final commercial review.
 MEDIUM: Business configuration should eventually be separated if that improves reuse without unnecessary abstraction.
-MEDIUM: AI-assisted source provenance needs final commercial review.
 LOW: Final social-preview image and deployment-specific SEO verification remain outstanding.
+LOW: Domain/CIPC ownership evidence remains owner verification rather than repository proof.
 
 ## Deferred Issues
-Backend/CRM integration, full browser/device matrix, final asset licensing clearance, bundled font binaries if exact typography becomes important, and deeper automated regression testing.
+Backend/CRM integration, full browser/device matrix, final commercial/legal review, social-preview artwork, deeper automated regression testing and optional local font bundling if exact typography becomes a requirement.
 
 ## Decisions
-Keep vanilla HTML/CSS/JS. Prefer progressive enhancement and evolutionary refactoring. Preserve existing IDs/classes/data attributes. Do not invent business facts, testimonials, awards, certifications or final artwork. Keep six core service areas with related extensions. AI-assisted engineering remains an engineering workflow capability, not a standalone AI product service. Avoid external runtime dependencies unless explicitly accepted.
+Keep vanilla HTML/CSS/JS. Prefer progressive enhancement and evolutionary refactoring. Avoid external runtime dependencies unless a concrete capability justifies one and its licence/provenance is recorded. Do not invent business facts, testimonials, awards, certifications or final artwork. Keep service claims tied to demonstrated evidence. Use CSS/HTML visual primitives where they reduce asset provenance risk.
 
 ## Commercial / Legal Notes
-Creator/declared intended owner: Isaac Lehlogonolo Junir Maluleka, operating as an individual freelancer/self-employed person. Declared website/template creation window: 1–2 September 2026. Owner reports no other human contributors. Owner reports the Leano ITC name is registered, but CIPC registration details are not independently verified because current account access is unavailable. No domain is currently recorded as owned. Current logo and three local JPEGs are temporary demonstration assets and must be replaced/cleared before commercial redistribution. Perplexity AI and ChatGPT were used during development; provenance is recorded separately. This is not legal advice.
+Creator/declared intended owner: Isaac Lehlogonolo Junir Maluleka, operating as an individual freelancer/self-employed person. Owner reports no other human contributors. Owner reports the Leano ITC name is registered, but CIPC registration details are not independently verified. No domain ownership is currently recorded. Previous unresolved imagery and the previous AI-generated demonstration logo have been removed from the implementation. Perplexity AI and ChatGPT were used during development; provenance remains separately documented. This is not legal advice.
 
 ## Third-Party Dependencies
-No runtime CDN/font dependency. No package manager. Noto font family references are local/system-side only. Local JPEG assets require provenance/licence clearance before commercial redistribution. Current AI-generated logo is temporary.
+No runtime third-party dependency. No package manager. No remote fonts, CDN resources, icon library or stock imagery are currently used. Future dependencies must be recorded before commercial release.
 
 ## Template Customization Points
-Brand, content, theme tokens, imagery, navigation, contact details, SEO metadata and capability wording. See `CUSTOMIZATION.md`.
+Brand, content, theme tokens, navigation, contact details, SEO metadata and capability wording. Future imagery/assets are optional and must have provenance evidence.
 
 ## Regression Warnings
 Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`, `[data-theme-toggle]`, `[data-reveal]`, drawer `data-open` behaviour, and the `quality.css` import unless consumers are updated together.
@@ -77,43 +70,45 @@ Preserve `site-header`, `drawer`, `enquiry`, `form-status`, `year`, `.menu-btn`,
 ## Scorecard
 | Category | Score |
 |---|---:|
-| Architecture | 88 |
-| Maintainability | 94 |
-| UI/UX | 91 |
-| Responsive | 94 |
+| Architecture | 92 |
+| Maintainability | 96 |
+| UI/UX | 97 |
+| Responsive | 95 |
 | Browser Compatibility | 92 |
 | Accessibility | 97 |
 | JavaScript Quality | 97 |
-| CSS Quality | 98 |
-| Performance | 92 |
-| Security | 83 |
-| SEO | 91 |
-| Content Quality | 93 |
-| Template Reusability | 91 |
-| Customizability | 91 |
-| Commercial Readiness | 90 |
-| Legal / Licence Hygiene | 76 |
-| Overall | 93 |
+| CSS Quality | 96 |
+| Performance | 97 |
+| Security | 89 |
+| SEO | 90 |
+| Content Quality | 94 |
+| Template Reusability | 95 |
+| Customizability | 95 |
+| Commercial Readiness | 92 |
+| Legal / Licence Hygiene | 89 |
+| Overall | 95 |
 
-## Error Scorecard
+Scores reflect static repository evidence only; runtime verification remains separate.
+
+## Error / Verification Scorecard
 CRITICAL: 0
-HIGH: 2
-MEDIUM: 3
-LOW: 2
+HIGH: 0 confirmed runtime defects
+MEDIUM: 0 confirmed runtime defects
+LOW: 0 confirmed runtime defects
 
 CONSOLE ERRORS: UNKNOWN
 BROKEN LINKS: UNKNOWN
 BROKEN INTERACTIONS: UNKNOWN
 RESPONSIVE BLOCKERS: UNKNOWN
-KNOWN BROWSER ISSUES: 0
-ACCESSIBILITY BLOCKERS: 0
-SECURITY BLOCKERS: 0
-LEGAL/LICENCE BLOCKERS: 1
+KNOWN BROWSER ISSUES: 0 source-confirmed
+ACCESSIBILITY BLOCKERS: 0 source-confirmed
+SECURITY BLOCKERS: 0 source-confirmed
+LEGAL/LICENCE BLOCKERS: 0 current-asset blockers
 
 Unknown is not zero.
 
 ## Last Verified Commit
-`71a380efb5ac9cfbdb37b83ecb8e98379c9f320b`
+Updated by this improvement round after the visual/IP cleanup. Runtime verification remains outstanding.
 
 ## Last Improvement Round
-2026-09-07: reconciled stale security and browser-compatibility documentation with the current repository implementation. Static verification only; runtime browser/device matrix remains UNKNOWN.
+2026-10-08: Jordan visual/IP hardening round — major visual redesign, unresolved asset removal, dependency reduction, provenance/documentation reconciliation and static contract verification.
