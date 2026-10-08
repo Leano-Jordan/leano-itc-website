@@ -6,7 +6,7 @@
 [id] { scroll-margin-top: 6rem; }
 button, input, select, textarea { font: inherit; }
 .field input, .field textarea, .field select { font-size: max(1rem, var(--text-sm, .875rem)); }
-:where(a, button, input, select, textarea):focus-visible { outline: 3px solid var(--signal, #d9ff3f); outline-offset: 3px; }
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid var(--signal, #a9b58a); outline-offset: 3px; }
 :where(.icon-btn, .menu-btn, .btn) { min-width: 44px; }
 :where(.nav a, .drawer a, .footer a) { text-underline-offset: .2em; }
 @media (prefers-reduced-motion: no-preference) {
