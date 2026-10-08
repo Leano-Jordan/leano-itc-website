@@ -9,7 +9,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--space-20);
+  scroll-padding-top: 6rem;
 }
 
 html[data-theme='light'] {
@@ -23,10 +23,10 @@ html[data-theme='dark'] {
 body {
   min-height: 100vh;
   line-height: 1.6;
-  font-family: var(--font-body, sans-serif);
-  font-size: var(--text-base);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  color: var(--ink, #1b2023);
+  background-color: var(--paper, #f3f1eb);
   overflow-x: hidden;
 }
 
@@ -98,14 +98,14 @@ figcaption {
 }
 
 ::selection {
-  background: rgba(85, 52, 155, 0.25);
+  background: rgba(169, 181, 138, 0.28);
   color: var(--color-text);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--signal, #a9b58a);
   outline-offset: 3px;
-  border-radius: var(--radius-sm);
+  border-radius: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
