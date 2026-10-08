@@ -1,4 +1,4 @@
-/* Leano ITC — interactions */
+/* Rosscore Labs — interactions */
 (function () {
   'use strict';
 
