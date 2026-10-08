@@ -3,7 +3,7 @@
 ## Identity
 - Company: Rosscore Labs
 - Project: Rosscore Labs Website
-- Repository: Leano-Jordan/leano-itc-website
+- Repository: Rosscore Labs website repository
 - Canonical branch: main
 - Project Director: **Jodie**
 - Product type: Static commercial/service website and reusable web asset
