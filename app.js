@@ -146,7 +146,7 @@
     });
 
     window.addEventListener('resize', function () {
-      if (window.innerWidth >= 900 && drawer.getAttribute('data-open') === 'true') closeDrawer(false);
+      if (window.innerWidth >= 980 && drawer.getAttribute('data-open') === 'true') closeDrawer(false);
     }, { passive: true });
   }
 
