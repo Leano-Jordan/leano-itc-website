@@ -15,6 +15,14 @@ Editorial/technical visual system built from project-owned CSS:
 - Dark/light theme retained.
 - System UI fonts only; no remote or bundled font dependency.
 
+## Theme behavior — 2026-10-09
+
+- First visit defaults to light mode regardless of the operating system/browser dark-mode setting.
+- A theme selected using the site toggle is stored as an explicit preference and restored on later visits.
+- Browser UI `theme-color` and native control `color-scheme` follow the active theme.
+- Dark mode uses separate text and dark-surface tokens so the hero, process section, footer and hover states remain genuinely dark instead of accidentally switching to light backgrounds with light text.
+- Source-level theme logic and palette reviewed; physical-device/browser rendering still requires runtime verification.
+
 ## Important Components
 Sticky header, desktop navigation, mobile drawer, theme toggle, hero terminal visual, signal ticker, system-map visual, capability grid, approach steps, selected-work panels, stack groups, contact form and footer.
 

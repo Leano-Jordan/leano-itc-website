@@ -3,7 +3,6 @@
   'use strict';
 
   const root = document.documentElement;
-  const mediaQuery = typeof window.matchMedia === 'function' ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   const reducedMotionQuery = typeof window.matchMedia === 'function' ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
   const raf = typeof window.requestAnimationFrame === 'function' ? window.requestAnimationFrame.bind(window) : function (callback) { return window.setTimeout(callback, 16); };
   const caf = typeof window.cancelAnimationFrame === 'function' ? window.cancelAnimationFrame.bind(window) : function (id) { window.clearTimeout(id); };
@@ -14,6 +13,8 @@
   const sun = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
   const moon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
   const toggle = document.querySelector('[data-theme-toggle]');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  const colorScheme = document.querySelector('meta[name="color-scheme"]');
 
   function getStoredTheme() {
     try {
@@ -29,10 +30,13 @@
   }
 
   const storedTheme = getStoredTheme();
-  let mode = storedTheme || (mediaQuery && mediaQuery.matches ? 'dark' : 'light');
+  // Light is the first-visit default. Only an explicit saved user choice overrides it.
+  let mode = storedTheme || 'light';
 
   function paint() {
     root.setAttribute('data-theme', mode);
+    if (colorScheme) colorScheme.setAttribute('content', mode);
+    if (themeColor) themeColor.setAttribute('content', mode === 'dark' ? '#070d10' : '#f3f1eb');
     if (!toggle) return;
     toggle.innerHTML = mode === 'dark' ? sun : moon;
     toggle.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
@@ -50,11 +54,6 @@
     });
   }
 
-  if (!storedTheme && mediaQuery) {
-    const onSystemThemeChange = function (event) { mode = event.matches ? 'dark' : 'light'; paint(); };
-    if (typeof mediaQuery.addEventListener === 'function') mediaQuery.addEventListener('change', onSystemThemeChange);
-    else if (typeof mediaQuery.addListener === 'function') mediaQuery.addListener(onSystemThemeChange);
-  }
 
   /* ---------- Header scroll state ---------- */
   const header = document.getElementById('site-header');

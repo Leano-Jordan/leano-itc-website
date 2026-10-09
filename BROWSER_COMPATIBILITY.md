@@ -22,6 +22,12 @@ Chrome, Edge, Firefox, Safari, Samsung Internet, Chrome Android and Safari iOS.
 
 The hero image uses standard `preload` and responsive image attributes without a `fetchpriority` dependency. The hero image itself uses `fetchpriority="high"` only if present in the current markup; this is non-essential to correctness and should not be treated as a compatibility requirement.
 
+## Theme behavior
+
+- First-visit theme is explicitly light; the site does not inherit `prefers-color-scheme` from Edge, Chrome or the operating system.
+- A user-selected theme is persisted and restored. Browser `theme-color` and native form-control `color-scheme` are synchronized with that selection.
+- Light and dark theme surface/text tokens are separated to prevent low-contrast inversion in dark sections and project-card hover states.
+
 ## Verification status
 
 Static compatibility review: VERIFIED for the safeguards above.
